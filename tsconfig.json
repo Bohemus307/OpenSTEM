@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
+    "rootDir": ".",
     "baseUrl": ".",
     "paths": {
       "@components/*": ["./src/components/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@lib/*": ["./src/lib/*"],
-      "@pages/*": ["./src/pages/*"]
+      "@pages/*": ["./src/pages/*"],
+      "@styles/*": ["./src/styles/*"]
     },
+    "downlevelIteration": true,
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -21,12 +24,18 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
