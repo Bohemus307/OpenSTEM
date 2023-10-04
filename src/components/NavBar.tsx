@@ -11,7 +11,6 @@ import {
   UserGroupIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { MagnifyingGlassIcon } from '@heroicons/react/20/solid'
 import HeaderLogo from './HeaderLogo'
 
 const sidebarNavigation = [
@@ -38,20 +37,18 @@ const NavBar: React.FC<NavBarProps> = ({ mobileMenuOpen, setMobileMenuOpen }: Na
   return (
     <div className="flex h-screen">
       {/* Narrow sidebar */}
-      <div className="hidden w-28 overflow-y-auto bg-primary-500 md:block">
+      <div className="hidden w-28  md:block ml-6">
         <div className="flex w-full flex-col items-center py-6">
-          <div className="flex flex-shrink-0 items-center">
-            <HeaderLogo />
-          </div>
-          <div className="mt-6 w-full flex-1 space-y-1 px-2">
+          <HeaderLogo />
+          <div className="mt-12 w-full bg-gray-700 rounded-2xl flex-1 space-y-8 px-2 pb-6 pt-2">
             {sidebarNavigation.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 className={classNames(
                   item.current
-                    ? "bg-gray-700 text-white"
-                    : "text-indigo-100 hover:bg-gray-700 hover:text-white",
+                    ? "bg-primary-500 text-white"
+                    : "text-indigo-100 hover:bg-primary-500 hover:text-white",
                   "group flex w-full flex-col items-center rounded-md p-3 text-xs font-medium"
                 )}
                 aria-current={item.current ? "page" : undefined}
