@@ -1,76 +1,133 @@
-import { Menu, Transition } from "@headlessui/react";
-import { Bars3BottomLeftIcon, MagnifyingGlassIcon, PlusIcon } from "@heroicons/react/24/outline";
-import { Dispatch, Fragment, SetStateAction, useState } from "react";
-import { classNames } from "./NavBar";
+'use client'
 
-const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Sign out", href: "#" },
-];
+import { Fragment } from 'react'
+import Link from 'next/link'
+import { Popover, Transition } from '@headlessui/react'
+import clsx from 'clsx'
 
-interface HeaderProps {
-  setMobileMenuOpen: Dispatch<SetStateAction<boolean>>;
+import { Button } from '@components/Button'
+import { Container } from '@components/Container'
+import { Logo } from '@components/Logo'
+import { NavLink } from '@components/NavLink'
+
+function MobileNavLink({
+  href,
+  children,
+}: {
+  href: string
+  children: React.ReactNode
+}) {
+  return (
+    <Popover.Button as={Link} href={href} className="block w-full p-2">
+      {children}
+    </Popover.Button>
+  )
 }
 
-const Header: React.FC<HeaderProps> = ({ setMobileMenuOpen}: HeaderProps) => {
-  
+function MobileNavIcon({ open }: { open: boolean }) {
   return (
-    <header className="w-full">
-      <div className="relative z-10 flex justify-between h-24 flex-shrink-0">
-        <button
-          type="button"
-          className="border-r border-gray-200 px-4 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
-          onClick={() => setMobileMenuOpen(true)}
+    <svg
+      aria-hidden="true"
+      className="h-3.5 w-3.5 overflow-visible stroke-slate-700"
+      fill="none"
+      strokeWidth={2}
+      strokeLinecap="round"
+    >
+      <path
+        d="M0 1H14M0 7H14M0 13H14"
+        className={clsx(
+          'origin-center transition',
+          open && 'scale-90 opacity-0',
+        )}
+      />
+      <path
+        d="M2 2L12 12M12 2L2 12"
+        className={clsx(
+          'origin-center transition',
+          !open && 'scale-90 opacity-0',
+        )}
+      />
+    </svg>
+  )
+}
+
+function MobileNavigation() {
+  return (
+    <Popover>
+      <Popover.Button
+        className="relative z-10 flex h-8 w-8 items-center justify-center ui-not-focus-visible:outline-none"
+        aria-label="Toggle Navigation"
+      >
+        {({ open }) => <MobileNavIcon open={open} />}
+      </Popover.Button>
+      <Transition.Root>
+        <Transition.Child
+          as={Fragment}
+          enter="duration-150 ease-out"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="duration-150 ease-in"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
         >
-          <span className="sr-only">Open sidebar</span>
-          <Bars3BottomLeftIcon className="h-6 w-6" aria-hidden="true" />
-        </button>
-        <div className="flex flex-1 justify-end px-4 sm:px-6">
-          <div className="ml-2 flex items-center space-x-4 sm:ml-6 sm:space-x-6">
-            {/* Profile dropdown */}
-            <Menu as="div" className="relative flex-shrink-0">
-              <div>
-                <Menu.Button className="flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2">
-                  <span className="sr-only">Open user menu</span>
-                  <img
-                    className="h-8 w-8 rounded-full"
-                    src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80"
-                    alt=""
-                  />
-                </Menu.Button>
-              </div>
-              <Transition
-                as={Fragment}
-                enter="transition ease-out duration-100"
-                enterFrom="transform opacity-0 scale-95"
-                enterTo="transform opacity-100 scale-100"
-                leave="transition ease-in duration-75"
-                leaveFrom="transform opacity-100 scale-100"
-                leaveTo="transform opacity-0 scale-95"
-              >
-                <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  {userNavigation.map((item) => (
-                    <Menu.Item key={item.name}>
-                      {({ active }) => (
-                        <a
-                          href={item.href}
-                          className={classNames(
-                            active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-gray-700"
-                          )}
-                        >
-                          {item.name}
-                        </a>
-                      )}
-                    </Menu.Item>
-                  ))}
-                </Menu.Items>
-              </Transition>
-            </Menu>
+          <Popover.Overlay className="fixed inset-0 bg-slate-300/50" />
+        </Transition.Child>
+        <Transition.Child
+          as={Fragment}
+          enter="duration-150 ease-out"
+          enterFrom="opacity-0 scale-95"
+          enterTo="opacity-100 scale-100"
+          leave="duration-100 ease-in"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-95"
+        >
+          <Popover.Panel
+            as="div"
+            className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
+          >
+            <MobileNavLink href="#features">Features</MobileNavLink>
+            <MobileNavLink href="#testimonials">Testimonials</MobileNavLink>
+            <MobileNavLink href="#upcoming">Upcoming</MobileNavLink>
+            <hr className="m-2 border-slate-300/40" />
+            <MobileNavLink href="/login">Sign in</MobileNavLink>
+          </Popover.Panel>
+        </Transition.Child>
+      </Transition.Root>
+    </Popover>
+  )
+}
+
+export function Header() {
+  return (
+    <header className="py-10">
+      <Container>
+        <nav className="relative z-50 flex justify-between">
+          <div className="flex items-center md:gap-x-12">
+            <Link href="#" aria-label="Home" className='flex items-center'>
+              <Logo className="h-10 w-auto" />
+              <span className='-ml-8 text-primary-500 text-lg font-bold mt-4'>OpenSTEM</span>
+            </Link>
+            <div className="hidden md:flex md:gap-x-6">
+              <NavLink href="#features">Features</NavLink>
+              <NavLink href="#testimonials">Testimonials</NavLink>
+              <NavLink href="#upcoming">Upcoming</NavLink>
+            </div>
           </div>
-        </div>
-      </div>
+          <div className="flex items-center gap-x-5 md:gap-x-8">
+            <div className="hidden md:block">
+              <NavLink href="/login">Sign in</NavLink>
+            </div>
+            <Button href="/register" color="primary">
+              <span>
+                Get started <span className="hidden lg:inline">today</span>
+              </span>
+            </Button>
+            <div className="-mr-1 md:hidden">
+              <MobileNavigation />
+            </div>
+          </div>
+        </nav>
+      </Container>
     </header>
-  );
-};
-export default Header;
+  )
+}
