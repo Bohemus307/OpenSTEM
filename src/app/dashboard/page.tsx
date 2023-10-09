@@ -1,11 +1,11 @@
-// `app/dashboard/page.tsx` is the UI for the `/dashboard` URL
 "use client";
+
 import { Amplify } from "aws-amplify";
 import awsExports from "../../aws-exports";
 import Authenticator from "./authenticator";
 import "@aws-amplify/ui-react/styles.css";
 import { useTheme, View } from "@aws-amplify/ui-react";
-import SignInLogo from "src/ui/SignInLogo";
+import SignInLogo from "@components/SignInLogo";
 
 Amplify.configure({ ...awsExports, ssr: true });
 
