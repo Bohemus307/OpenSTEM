@@ -5,13 +5,9 @@
     "allowUnauthenticatedIdentities": false,
     "resourceNameTruncated": "stemhue4c6f3ee",
     "userPoolName": "stemhube4c6f3ee_userpool_e4c6f3ee",
-    "autoVerifiedAttributes": [
-      "email"
-    ],
+    "autoVerifiedAttributes": ["email"],
     "mfaConfiguration": "OFF",
-    "mfaTypes": [
-      "SMS Text Message"
-    ],
+    "mfaTypes": ["SMS Text Message"],
     "smsAuthenticationMessage": "Your authentication code is {####}",
     "smsVerificationMessage": "Your verification code is {####}",
     "emailVerificationSubject": "Your verification code",
@@ -19,18 +15,12 @@
     "defaultPasswordPolicy": false,
     "passwordPolicyMinLength": 8,
     "passwordPolicyCharacters": [],
-    "requiredAttributes": [
-      "email"
-    ],
+    "requiredAttributes": ["email"],
     "aliasAttributes": [],
     "userpoolClientGenerateSecret": false,
     "userpoolClientRefreshTokenValidity": 30,
-    "userpoolClientWriteAttributes": [
-      "email"
-    ],
-    "userpoolClientReadAttributes": [
-      "email"
-    ],
+    "userpoolClientWriteAttributes": ["email"],
+    "userpoolClientReadAttributes": ["email"],
     "userpoolClientLambdaRole": "stemhue4c6f3ee_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
     "sharedId": "e4c6f3ee",
@@ -38,9 +28,7 @@
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "manual",
     "thirdPartyAuth": false,
-    "usernameAttributes": [
-      "email"
-    ],
+    "usernameAttributes": ["email"],
     "userPoolGroups": false,
     "adminQueries": false,
     "triggers": {},

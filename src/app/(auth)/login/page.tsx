@@ -47,7 +47,12 @@ export default function Login() {
           required
         />
         <div>
-          <Button type="submit" variant="solid" color="primary" className="w-full">
+          <Button
+            type="submit"
+            variant="solid"
+            color="primary"
+            className="w-full"
+          >
             <span>
               Sign in <span aria-hidden="true">&rarr;</span>
             </span>

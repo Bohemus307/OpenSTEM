@@ -16,19 +16,19 @@ const features = [
   {
     title: 'Current Experiments',
     description:
-      "Trials and experimentation sponsored and organized by OpenSTEM to demonstrate and utilize our spaces for elegant testing and design",
+      'Trials and experimentation sponsored and organized by OpenSTEM to demonstrate and utilize our spaces for elegant testing and design',
     image: screenshotPayroll,
   },
   {
     title: 'User Experiments',
     description:
-      "User initiated and monitiored experiments using an OpenSTEM hub or your own trilaling environment to share your research with the world.",
+      'User initiated and monitiored experiments using an OpenSTEM hub or your own trilaling environment to share your research with the world.',
     image: screenshotExpenses,
   },
   {
     title: 'Data handling',
     description:
-      "Utilize our cutting edge data pipeline and automation controls to maximize the details and learnings extracted from every trial.",
+      'Utilize our cutting edge data pipeline and automation controls to maximize the details and learnings extracted from every trial.',
     image: screenshotVatReturns,
   },
   {
@@ -63,7 +63,7 @@ export function PrimaryFeatures() {
     <section
       id="features"
       aria-label="Features for running your books"
-      className="bg-primary-500 relative overflow-hidden pb-28 pt-20 sm:py-32"
+      className="relative overflow-hidden bg-primary-500 pb-28 pt-20 sm:py-32"
     >
       {/* <Image
         className="absolute left-1/2 top-1/2 max-w-none translate-x-[-44%] translate-y-[-42%]"
@@ -139,7 +139,7 @@ export function PrimaryFeatures() {
                         {feature.description}
                       </p>
                     </div>
-                    <div className="mt-10 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-primary-900/20 sm:w-auto lg:mt-0 lg:w-[67.8125rem]">
+                    <div className="shadow-primary-900/20 mt-10 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl sm:w-auto lg:mt-0 lg:w-[67.8125rem]">
                       <Image
                         className="w-full"
                         src={feature.image}

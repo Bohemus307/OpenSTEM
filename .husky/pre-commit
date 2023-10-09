@@ -1,0 +1,51 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# echo '🏗️👷 Styling, testing and building your project before committing'
+# # Run Tests
+# yarn test:ci ||
+# (
+#      echo '😤🏀👋😤 Get that funky CODE out of here! 😤🏀👋😤
+#         Tests are failing! Take pride in your work. Make them green and commit again.'
+#     false;
+# )
+# Check Prettier standards
+yarn check-format ||
+(
+    echo '🤢🤮🤢🤮 Its RAW - Your styling looks disgusting. 🤢🤮🤢🤮
+        Prettier Check Failed. yarn format, add changes and try commit again.';
+    false;
+)
+
+# Check ESLint Standards
+yarn lint ||
+(
+    echo '😤🏀👋😤 Get that funky CODE out of here! 😤🏀👋😤
+        ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
+    false;
+)
+
+# Passes linting
+echo '🤔🤔🤔🤔... Alright... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
+
+# # Run Unit Tests
+# yarn test ||
+# (
+#         echo '🥶🥶🥶 Your Tests Failed!!!🥶🥶🥶
+#                 👾👾 Bugs in Tests!!!👾👾  Check your tests and commit again. We must resist the dark side of Legacy Code!!!🥷🥷🥷'
+#         false;
+# )
+
+# # If everything passes... Now we can Build
+# echo '🥳🥳🥳... Tests Passed...💥 Party Time...💥 Trying to build now. 🥳🥳🥳'
+
+yarn build ||
+(
+    echo '❌👷🔨❌ Better call Bob... Because your build failed ❌👷🔨❌
+            Next build failed: View the errors above to see why.
+    '
+    false;
+)
+
+# If everything passes... Now we can commit
+echo '✅✅✅✅ You win this time... I am committing this to the Matrix. ✅✅✅✅'

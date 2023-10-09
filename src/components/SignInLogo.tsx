@@ -1,5 +1,4 @@
-import Image from "next/image";
-
+import Image from 'next/image'
 
 const SignInLogo: React.FC = () => {
   return (
@@ -7,12 +6,11 @@ const SignInLogo: React.FC = () => {
       <Image
         width={100}
         height={100}
-        src={"/images/scientist.png"}
-        alt={"biology style icon"}
+        src={'/images/scientist.png'}
+        alt={'biology style icon'}
       />
       <h2>OpenSTEM</h2>
     </div>
-  );
+  )
 }
-export default SignInLogo;
-
+export default SignInLogo

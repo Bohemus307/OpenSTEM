@@ -1,13 +1,13 @@
 export type AmplifyDependentResourcesAttributes = {
-  "auth": {
-    "stemhube4c6f3eee4c6f3ee": {
-      "AppClientID": "string",
-      "AppClientIDWeb": "string",
-      "IdentityPoolId": "string",
-      "IdentityPoolName": "string",
-      "UserPoolArn": "string",
-      "UserPoolId": "string",
-      "UserPoolName": "string"
+  auth: {
+    stemhube4c6f3eee4c6f3ee: {
+      AppClientID: 'string'
+      AppClientIDWeb: 'string'
+      IdentityPoolId: 'string'
+      IdentityPoolName: 'string'
+      UserPoolArn: 'string'
+      UserPoolId: 'string'
+      UserPoolName: 'string'
     }
   }
 }

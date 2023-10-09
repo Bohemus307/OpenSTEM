@@ -1,25 +1,25 @@
-"use client";
+'use client'
 
-import { Amplify } from "aws-amplify";
-import awsExports from "../../aws-exports";
-import Authenticator from "./authenticator";
-import "@aws-amplify/ui-react/styles.css";
-import { useTheme, View } from "@aws-amplify/ui-react";
-import SignInLogo from "@components/SignInLogo";
+import { Amplify } from 'aws-amplify'
+import awsExports from '../../aws-exports'
+import Authenticator from './authenticator'
+import '@aws-amplify/ui-react/styles.css'
+import { useTheme, View } from '@aws-amplify/ui-react'
+import SignInLogo from '@components/SignInLogo'
 
-Amplify.configure({ ...awsExports, ssr: true });
+Amplify.configure({ ...awsExports, ssr: true })
 
 const components = {
   Header() {
-    const { tokens } = useTheme();
+    const { tokens } = useTheme()
 
     return (
       <View textAlign="center" padding={tokens.space.large}>
         <SignInLogo />
       </View>
-    );
+    )
   },
-};
+}
 
 export default function Page() {
   return (
@@ -31,5 +31,5 @@ export default function Page() {
         </main>
       )}
     </Authenticator>
-  );
+  )
 }

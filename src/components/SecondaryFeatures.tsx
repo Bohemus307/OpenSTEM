@@ -237,7 +237,8 @@ export function SecondaryFeatures() {
             Simplify everyday monitoring and setup.
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Our hubs are designed for low maintenance and fast setup for all students regardless of past experience.
+            Our hubs are designed for low maintenance and fast setup for all
+            students regardless of past experience.
           </p>
         </div>
         <FeaturesMobile />

@@ -15,7 +15,7 @@ export function Footer() {
               OpenSTEM
             </span>
           </Link>
-          <nav className="mt-4 ml-16 text-sm" aria-label="quick links">
+          <nav className="ml-16 mt-4 text-sm" aria-label="quick links">
             <div className="-my-1 flex justify-center gap-x-6">
               <NavLink href="#features">Features</NavLink>
               <NavLink href="#testimonials">Testimonials</NavLink>

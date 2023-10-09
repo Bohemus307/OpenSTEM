@@ -12,7 +12,8 @@ const variantStyles = {
   solid: {
     slate:
       'bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900',
-    primary: 'bg-primary-500 text-white hover:text-slate-100 hover:bg-primary-600 active:bg-primary-600 active:text-white focus-visible:outline-primary-600',
+    primary:
+      'bg-primary-500 text-white hover:text-slate-100 hover:bg-primary-600 active:bg-primary-600 active:text-white focus-visible:outline-primary-600',
     white:
       'bg-white text-slate-900 hover:bg-slate-200 active:bg-primary-200 active:text-slate-600 focus-visible:outline-white',
   },

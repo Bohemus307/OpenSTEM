@@ -1,8 +1,8 @@
-import clsx from 'clsx';
-import yauponImage1 from '@images/Yaupon-Holly-1.jpg';
+import clsx from 'clsx'
+import yauponImage1 from '@images/Yaupon-Holly-1.jpg'
 import loblollyImage1 from '@images/loblolly-sapling.jpg'
 import lettuceImage1 from '@images/lettuce-1.jpeg'
-import Image, { StaticImageData } from 'next/image';
+import Image, { StaticImageData } from 'next/image'
 import { Button } from '@components/Button'
 import { Container } from '@components/Container'
 
@@ -72,11 +72,11 @@ function Plan({
     <section
       className={clsx(
         'flex flex-col rounded-3xl px-6 sm:px-8',
-        featured ? 'bg-primary-600 order-first py-8 lg:order-none' : 'lg:py-8',
+        featured ? 'order-first bg-primary-600 py-8 lg:order-none' : 'lg:py-8',
       )}
     >
       <Image
-        className="h-40 w-52 object-contain p-2 place-self-center"
+        className="h-40 w-52 place-self-center object-contain p-2"
         src={image}
         alt="Experiment image"
         width={100}
