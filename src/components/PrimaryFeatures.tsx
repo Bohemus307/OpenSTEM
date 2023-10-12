@@ -63,7 +63,7 @@ export function PrimaryFeatures() {
     <section
       id="features"
       aria-label="Features for running your books"
-      className="relative overflow-hidden bg-primary-500 pb-28 pt-20 sm:py-32"
+      className="bg-primary-500 relative overflow-hidden pb-28 pt-20 sm:py-32"
     >
       {/* <Image
         className="absolute left-1/2 top-1/2 max-w-none translate-x-[-44%] translate-y-[-42%]"
@@ -78,7 +78,7 @@ export function PrimaryFeatures() {
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">
             Everything you need.
           </h2>
-          <p className="mt-6 text-lg tracking-tight text-primary-100">
+          <p className="text-primary-100 mt-6 text-lg tracking-tight">
             With trialing spaces ranging from indoor-ag to robotics. OpenSTEM
             allows you to skip the hard parts of learning new technology and
             focus on great data in a consistent environment.

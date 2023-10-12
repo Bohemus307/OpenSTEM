@@ -7,7 +7,7 @@ import { type Metadata } from 'next'
 export const metadata: Metadata = {
   title: {
     template: '%s - OpenSTEM',
-    default: 'OpenSTEM - open source experimentation',
+    default: 'OpenSTEM - open source experiments',
   },
   description: 'Online hub for scientific trialing and shared experimentation',
 }

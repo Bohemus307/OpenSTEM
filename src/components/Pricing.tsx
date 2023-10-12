@@ -72,7 +72,7 @@ function Plan({
     <section
       className={clsx(
         'flex flex-col rounded-3xl px-6 sm:px-8',
-        featured ? 'order-first bg-primary-600 py-8 lg:order-none' : 'lg:py-8',
+        featured ? 'bg-primary-600 order-first py-8 lg:order-none' : 'lg:py-8',
       )}
     >
       <Image
@@ -129,7 +129,7 @@ export function Pricing() {
         <div className="md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
             <span className="relative whitespace-nowrap">
-              <SwirlyDoodle className="absolute left-0 top-1/2 h-[1em] w-full fill-primary-400" />
+              <SwirlyDoodle className="fill-primary-400 absolute left-0 top-1/2 h-[1em] w-full" />
               <span className="relative">Upcoming Experiments,</span>
             </span>{' '}
             for everyone.

@@ -105,7 +105,7 @@ export function Header() {
           <div className="flex items-center md:gap-x-12">
             <Link href="#" aria-label="Home" className="flex items-center">
               <Logo className="h-10 w-auto" />
-              <span className="-ml-8 mt-4 text-lg font-bold text-primary-500">
+              <span className="text-primary-500 -ml-8 mt-4 text-lg font-bold">
                 OpenSTEM
               </span>
             </Link>
