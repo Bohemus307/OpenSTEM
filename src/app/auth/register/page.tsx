@@ -25,7 +25,7 @@ export default function Register() {
         Already registered?{' '}
         <Link
           href="/login"
-          className="text-primary-500 font-medium hover:underline"
+          className="font-medium text-primary-500 hover:underline"
         >
           Sign in
         </Link>{' '}

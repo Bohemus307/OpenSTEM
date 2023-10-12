@@ -11,7 +11,7 @@ export function Footer() {
         <div className=" flex items-center pt-8">
           <Link href="#" aria-label="Home" className="flex items-center">
             <Logo className="h-10 w-auto" />
-            <span className="text-primary-500 -ml-8 mt-4 text-lg font-bold">
+            <span className="-ml-8 mt-4 text-lg font-bold text-primary-500">
               OpenSTEM
             </span>
           </Link>

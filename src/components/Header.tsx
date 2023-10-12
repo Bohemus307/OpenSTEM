@@ -55,7 +55,7 @@ function MobileNavigation() {
   return (
     <Popover>
       <Popover.Button
-        className="ui-not-focus-visible:outline-none relative z-10 flex h-8 w-8 items-center justify-center"
+        className="relative z-10 flex h-8 w-8 items-center justify-center ui-not-focus-visible:outline-none"
         aria-label="Toggle Navigation"
       >
         {({ open }) => <MobileNavIcon open={open} />}
@@ -105,7 +105,7 @@ export function Header() {
           <div className="flex items-center md:gap-x-12">
             <Link href="#" aria-label="Home" className="flex items-center">
               <Logo className="h-10 w-auto" />
-              <span className="text-primary-500 -ml-8 mt-4 text-lg font-bold">
+              <span className="-ml-8 mt-4 text-lg font-bold text-primary-500">
                 OpenSTEM
               </span>
             </Link>

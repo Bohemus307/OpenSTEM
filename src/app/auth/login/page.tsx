@@ -25,7 +25,7 @@ export default function Login() {
         Don’t have an account?{' '}
         <Link
           href="/register"
-          className="text-primary-500 font-medium hover:underline"
+          className="font-medium text-primary-500 hover:underline"
         >
           Sign up
         </Link>{' '}
