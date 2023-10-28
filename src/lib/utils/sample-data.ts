@@ -1,4 +1,4 @@
-import { User } from '../interfaces'
+import { User } from '../../interfaces'
 
 /** Dummy user data. */
 export const sampleUserData: User[] = [
@@ -7,3 +7,5 @@ export const sampleUserData: User[] = [
   { id: 103, name: 'Caroline' },
   { id: 104, name: 'Dave' },
 ]
+
+export const currentFeaturedExperiments = [{}]
