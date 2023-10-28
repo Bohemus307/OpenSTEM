@@ -1,15 +1,15 @@
 {
-  "dev": {
+  "main": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-stemhub-dev-81748-authRole",
-      "UnauthRoleArn": "arn:aws:iam::337654367097:role/amplify-stemhub-dev-81748-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::337654367097:role/amplify-stemhub-dev-81748-authRole",
+      "AuthRoleName": "amplify-stemhub-main-190516-authRole",
+      "UnauthRoleArn": "arn:aws:iam::337654367097:role/amplify-stemhub-main-190516-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::337654367097:role/amplify-stemhub-main-190516-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-stemhub-dev-81748-deployment",
-      "UnauthRoleName": "amplify-stemhub-dev-81748-unauthRole",
-      "StackName": "amplify-stemhub-dev-81748",
-      "StackId": "arn:aws:cloudformation:us-east-1:337654367097:stack/amplify-stemhub-dev-81748/fa9aa640-5a1b-11ee-aecb-0e303b104491",
-      "AmplifyAppId": "da1aca6aq649u"
+      "DeploymentBucketName": "amplify-stemhub-main-190516-deployment",
+      "UnauthRoleName": "amplify-stemhub-main-190516-unauthRole",
+      "StackName": "amplify-stemhub-main-190516",
+      "StackId": "arn:aws:cloudformation:us-east-1:337654367097:stack/amplify-stemhub-main-190516/f49fc470-62e8-11ee-980b-0a0e0d87c745",
+      "AmplifyAppId": "d39m8pidt12rri"
     },
     "categories": {
       "auth": {

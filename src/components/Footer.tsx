@@ -8,21 +8,23 @@ export function Footer() {
   return (
     <footer className="bg-slate-50">
       <Container>
-        <div className=" flex items-center pt-8">
-          <Link href="#" aria-label="Home" className="flex items-center">
-            <Logo className="h-10 w-auto" />
+        <nav
+          className="flex items-center justify-evenly text-sm"
+          aria-label="quick links"
+        >
+          <Link href="/" aria-label="Home" className="flex w-1/3 items-center">
+            <Logo variant="Medium" />
             <span className="-ml-8 mt-4 text-lg font-bold text-primary-500">
               OpenSTEM
             </span>
           </Link>
-          <nav className="ml-16 mt-4 text-sm" aria-label="quick links">
-            <div className="-my-1 flex justify-center gap-x-6">
-              <NavLink href="#features">Features</NavLink>
-              <NavLink href="#testimonials">Testimonials</NavLink>
-              <NavLink href="#pricing">Upcoming</NavLink>
-            </div>
-          </nav>
-        </div>
+          <div className="-my-1 flex w-1/3 items-center justify-center gap-x-6">
+            <NavLink href="#features">Features</NavLink>
+            <NavLink href="#testimonials">Testimonials</NavLink>
+            <NavLink href="#pricing">Upcoming</NavLink>
+          </div>
+          <div className="flex w-1/3" />
+        </nav>
         <div className="flex flex-col items-center border-t border-slate-400/10 py-10 sm:flex-row-reverse sm:justify-between">
           <div className="flex gap-x-6">
             <Link

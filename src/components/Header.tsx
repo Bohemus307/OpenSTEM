@@ -102,20 +102,20 @@ export function Header() {
     <header className="py-10">
       <Container>
         <nav className="relative z-50 flex justify-between">
-          <div className="flex items-center md:gap-x-12">
-            <Link href="#" aria-label="Home" className="flex items-center">
-              <Logo className="h-10 w-auto" />
-              <span className="-ml-8 mt-4 text-lg font-bold text-primary-500">
-                OpenSTEM
-              </span>
-            </Link>
+          <Link href="#" aria-label="Home" className="flex w-1/3 items-center">
+            <Logo variant="Medium" />
+            <span className="-ml-8 mt-4 text-lg font-bold text-primary-500">
+              OpenSTEM
+            </span>
+          </Link>
+          <div className="flex w-1/3 items-center justify-center md:gap-x-12">
             <div className="hidden md:flex md:gap-x-6">
               <NavLink href="#features">Features</NavLink>
               <NavLink href="#testimonials">Testimonials</NavLink>
               <NavLink href="#upcoming">Upcoming</NavLink>
             </div>
           </div>
-          <div className="flex items-center gap-x-5 md:gap-x-8">
+          <div className="flex w-1/3 items-center justify-end gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
               <NavLink href="/login">Sign in</NavLink>
             </div>

@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --authenticator-bg-color: transparent;
+  --authenticator-box-shadow: none;
+  --authenticator-border-color: transparent;
+  --authenticator-border-color: none;
+  --authenticator-border-width: 0;
+}
+.amplify-button[data-variation='primary'] {
+  @apply bg-primary-500 hover:bg-primary-400;
+}
+
+[data-amplify-authenticator] [data-amplify-router] {
+  --amplify-components-authenticator-router-background-color: var(
+    --authenticator-bg-color
+  );
+  --amplify-components-authenticator-router-box-shadow: var(
+    --authenticator-box-shadow
+  );
+  --amplify-components-authenticator-router-border-color: var(
+    --authenticator-border-color
+  );
+  --amplify-components-authenticator-router-border-width: var(
+    --authenticator-border-width
+  );
+  --amplify-components-authenticator-router-border-style: var(
+    --authenticator-border-color
+  );
+}

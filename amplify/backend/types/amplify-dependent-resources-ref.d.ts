@@ -1,4 +1,11 @@
 export type AmplifyDependentResourcesAttributes = {
+  api: {
+    openstem: {
+      GraphQLAPIEndpointOutput: 'string'
+      GraphQLAPIIdOutput: 'string'
+      GraphQLAPIKeyOutput: 'string'
+    }
+  }
   auth: {
     stemhube4c6f3eee4c6f3ee: {
       AppClientID: 'string'
