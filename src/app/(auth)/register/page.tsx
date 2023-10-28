@@ -10,8 +10,6 @@ import * as Yup from 'yup'
 import { Amplify, Auth } from 'aws-amplify'
 import { useRouter } from 'next/navigation'
 import awsExports from '../../../aws-exports'
-import { useAuthenticator, withAuthenticator } from '@aws-amplify/ui-react'
-import { useEffect } from 'react'
 
 Amplify.configure({ ...awsExports, ssr: true })
 
@@ -39,7 +37,6 @@ const SignupSchema = Yup.object().shape({
 
 const Register: React.FC = () => {
   const router = useRouter()
-  const { user } = useAuthenticator()
   const initialValues: SignUpValues = {
     firstName: '',
     lastName: '',
@@ -47,12 +44,6 @@ const Register: React.FC = () => {
     password: '',
     refferalSource: 'AltaVista search',
   }
-
-  useEffect(() => {
-    if (user) {
-      router.push('/')
-    }
-  }, [router, user])
 
   async function signUpUser(formValues: SignUpValues) {
     try {
@@ -102,79 +93,78 @@ const Register: React.FC = () => {
         </Link>{' '}
         to your account.
       </div>
-      {!user && (
-        <Formik
-          validationSchema={SignupSchema}
-          initialValues={initialValues}
-          onSubmit={async (values, actions) => {
-            await signUpUser(values)
-          }}
-        >
-          {({ handleChange }) => (
-            <Form className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2">
-              <TextField
-                label="First name"
-                name="firstName"
-                type="text"
-                autoComplete="given-name"
-                required
-                onChange={handleChange}
-              />
-              <TextField
-                label="Last name"
-                name="lastName"
-                type="text"
-                autoComplete="family-name"
-                required
-                onChange={handleChange}
-              />
-              <TextField
-                className="col-span-full"
-                label="Email address"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                onChange={handleChange}
-              />
-              <TextField
-                className="col-span-full"
-                label="Password"
-                name="password"
-                type="password"
-                autoComplete="new-password"
-                required
-                onChange={handleChange}
-              />
-              <SelectField
-                className="col-span-full"
-                label="How did you hear about us?"
-                name="referralSource"
-                onChange={handleChange}
+
+      <Formik
+        validationSchema={SignupSchema}
+        initialValues={initialValues}
+        onSubmit={async (values, actions) => {
+          await signUpUser(values)
+        }}
+      >
+        {({ handleChange }) => (
+          <Form className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2">
+            <TextField
+              label="First name"
+              name="firstName"
+              type="text"
+              autoComplete="given-name"
+              required
+              onChange={handleChange}
+            />
+            <TextField
+              label="Last name"
+              name="lastName"
+              type="text"
+              autoComplete="family-name"
+              required
+              onChange={handleChange}
+            />
+            <TextField
+              className="col-span-full"
+              label="Email address"
+              name="email"
+              type="email"
+              autoComplete="email"
+              required
+              onChange={handleChange}
+            />
+            <TextField
+              className="col-span-full"
+              label="Password"
+              name="password"
+              type="password"
+              autoComplete="new-password"
+              required
+              onChange={handleChange}
+            />
+            <SelectField
+              className="col-span-full"
+              label="How did you hear about us?"
+              name="referralSource"
+              onChange={handleChange}
+            >
+              <option>AltaVista search</option>
+              <option>Super Bowl commercial</option>
+              <option>Our route 34 city bus ad</option>
+              <option>The “Never Use This” podcast</option>
+            </SelectField>
+            <div className="col-span-full">
+              <Button
+                type="submit"
+                variant="solid"
+                color="primary"
+                className="w-full"
               >
-                <option>AltaVista search</option>
-                <option>Super Bowl commercial</option>
-                <option>Our route 34 city bus ad</option>
-                <option>The “Never Use This” podcast</option>
-              </SelectField>
-              <div className="col-span-full">
-                <Button
-                  type="submit"
-                  variant="solid"
-                  color="primary"
-                  className="w-full"
-                >
-                  <span>
-                    Sign up <span aria-hidden="true">&rarr;</span>
-                  </span>
-                </Button>
-              </div>
-            </Form>
-          )}
-        </Formik>
-      )}
+                <span>
+                  Sign up <span aria-hidden="true">&rarr;</span>
+                </span>
+              </Button>
+            </div>
+          </Form>
+        )}
+      </Formik>
     </SlimLayout>
   )
 }
 
-export default withAuthenticator(Register)
+export default Register
