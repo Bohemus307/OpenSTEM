@@ -7,5 +7,3 @@ export const sampleUserData: User[] = [
   { id: 103, name: 'Caroline' },
   { id: 104, name: 'Dave' },
 ]
-
-export const currentFeaturedExperiments = [{}]

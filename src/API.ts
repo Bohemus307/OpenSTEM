@@ -129,6 +129,7 @@ export type CreateUserInput = {
 }
 
 export type ModelUserConditionInput = {
+  email?: ModelStringInput | null
   name?: ModelStringInput | null
   and?: Array<ModelUserConditionInput | null> | null
   or?: Array<ModelUserConditionInput | null> | null
@@ -167,17 +168,17 @@ export type Experiment = {
   secondaryImage?: string | null
   createdAt: string
   updatedAt: string
-  userExperimentsEmail?: string | null
+  userExperimentsId?: string | null
 }
 
 export type UpdateUserInput = {
-  id?: string | null
-  email: string
+  id: string
+  email?: string | null
   name?: string | null
 }
 
 export type DeleteUserInput = {
-  email: string
+  id: string
 }
 
 export type CreateExperimentInput = {
@@ -192,7 +193,7 @@ export type CreateExperimentInput = {
   end?: number | null
   primaryImage?: string | null
   secondaryImage?: string | null
-  userExperimentsEmail?: string | null
+  userExperimentsId?: string | null
 }
 
 export type ModelExperimentConditionInput = {
@@ -209,7 +210,23 @@ export type ModelExperimentConditionInput = {
   and?: Array<ModelExperimentConditionInput | null> | null
   or?: Array<ModelExperimentConditionInput | null> | null
   not?: ModelExperimentConditionInput | null
-  userExperimentsEmail?: ModelStringInput | null
+  userExperimentsId?: ModelIDInput | null
+}
+
+export type ModelIDInput = {
+  ne?: string | null
+  eq?: string | null
+  le?: string | null
+  lt?: string | null
+  ge?: string | null
+  gt?: string | null
+  contains?: string | null
+  notContains?: string | null
+  between?: Array<string | null> | null
+  beginsWith?: string | null
+  attributeExists?: boolean | null
+  attributeType?: ModelAttributeTypes | null
+  size?: ModelSizeInput | null
 }
 
 export type UpdateExperimentInput = {
@@ -224,7 +241,7 @@ export type UpdateExperimentInput = {
   end?: number | null
   primaryImage?: string | null
   secondaryImage?: string | null
-  userExperimentsEmail?: string | null
+  userExperimentsId?: string | null
 }
 
 export type DeleteExperimentInput = {
@@ -247,27 +264,6 @@ export type ModelFeaturedExperimentFilterInput = {
   and?: Array<ModelFeaturedExperimentFilterInput | null> | null
   or?: Array<ModelFeaturedExperimentFilterInput | null> | null
   not?: ModelFeaturedExperimentFilterInput | null
-}
-
-export type ModelIDInput = {
-  ne?: string | null
-  eq?: string | null
-  le?: string | null
-  lt?: string | null
-  ge?: string | null
-  gt?: string | null
-  contains?: string | null
-  notContains?: string | null
-  between?: Array<string | null> | null
-  beginsWith?: string | null
-  attributeExists?: boolean | null
-  attributeType?: ModelAttributeTypes | null
-  size?: ModelSizeInput | null
-}
-
-export enum ModelSortDirection {
-  ASC = 'ASC',
-  DESC = 'DESC',
 }
 
 export type ModelFeaturedExperimentConnection = {
@@ -306,7 +302,7 @@ export type ModelExperimentFilterInput = {
   and?: Array<ModelExperimentFilterInput | null> | null
   or?: Array<ModelExperimentFilterInput | null> | null
   not?: ModelExperimentFilterInput | null
-  userExperimentsEmail?: ModelStringInput | null
+  userExperimentsId?: ModelIDInput | null
 }
 
 export type ModelSubscriptionFeaturedExperimentFilterInput = {
@@ -556,7 +552,7 @@ export type CreateExperimentMutation = {
     secondaryImage?: string | null
     createdAt: string
     updatedAt: string
-    userExperimentsEmail?: string | null
+    userExperimentsId?: string | null
   } | null
 }
 
@@ -589,7 +585,7 @@ export type UpdateExperimentMutation = {
     secondaryImage?: string | null
     createdAt: string
     updatedAt: string
-    userExperimentsEmail?: string | null
+    userExperimentsId?: string | null
   } | null
 }
 
@@ -622,7 +618,7 @@ export type DeleteExperimentMutation = {
     secondaryImage?: string | null
     createdAt: string
     updatedAt: string
-    userExperimentsEmail?: string | null
+    userExperimentsId?: string | null
   } | null
 }
 
@@ -651,11 +647,9 @@ export type GetFeaturedExperimentQuery = {
 }
 
 export type ListFeaturedExperimentsQueryVariables = {
-  id?: string | null
   filter?: ModelFeaturedExperimentFilterInput | null
   limit?: number | null
   nextToken?: string | null
-  sortDirection?: ModelSortDirection | null
 }
 
 export type ListFeaturedExperimentsQuery = {
@@ -683,7 +677,7 @@ export type ListFeaturedExperimentsQuery = {
 }
 
 export type GetUserQueryVariables = {
-  email: string
+  id: string
 }
 
 export type GetUserQuery = {
@@ -702,11 +696,9 @@ export type GetUserQuery = {
 }
 
 export type ListUsersQueryVariables = {
-  email?: string | null
   filter?: ModelUserFilterInput | null
   limit?: number | null
   nextToken?: string | null
-  sortDirection?: ModelSortDirection | null
 }
 
 export type ListUsersQuery = {
@@ -752,16 +744,14 @@ export type GetExperimentQuery = {
     secondaryImage?: string | null
     createdAt: string
     updatedAt: string
-    userExperimentsEmail?: string | null
+    userExperimentsId?: string | null
   } | null
 }
 
 export type ListExperimentsQueryVariables = {
-  id?: string | null
   filter?: ModelExperimentFilterInput | null
   limit?: number | null
   nextToken?: string | null
-  sortDirection?: ModelSortDirection | null
 }
 
 export type ListExperimentsQuery = {
@@ -782,7 +772,7 @@ export type ListExperimentsQuery = {
       secondaryImage?: string | null
       createdAt: string
       updatedAt: string
-      userExperimentsEmail?: string | null
+      userExperimentsId?: string | null
     } | null>
     nextToken?: string | null
   } | null
@@ -945,7 +935,7 @@ export type OnCreateExperimentSubscription = {
     secondaryImage?: string | null
     createdAt: string
     updatedAt: string
-    userExperimentsEmail?: string | null
+    userExperimentsId?: string | null
   } | null
 }
 
@@ -977,7 +967,7 @@ export type OnUpdateExperimentSubscription = {
     secondaryImage?: string | null
     createdAt: string
     updatedAt: string
-    userExperimentsEmail?: string | null
+    userExperimentsId?: string | null
   } | null
 }
 
@@ -1009,6 +999,6 @@ export type OnDeleteExperimentSubscription = {
     secondaryImage?: string | null
     createdAt: string
     updatedAt: string
-    userExperimentsEmail?: string | null
+    userExperimentsId?: string | null
   } | null
 }

@@ -34,18 +34,14 @@ export const getFeaturedExperiment =
   >
 export const listFeaturedExperiments =
   /* GraphQL */ `query ListFeaturedExperiments(
-  $id: ID
   $filter: ModelFeaturedExperimentFilterInput
   $limit: Int
   $nextToken: String
-  $sortDirection: ModelSortDirection
 ) {
   listFeaturedExperiments(
-    id: $id
     filter: $filter
     limit: $limit
     nextToken: $nextToken
-    sortDirection: $sortDirection
   ) {
     items {
       id
@@ -72,8 +68,8 @@ export const listFeaturedExperiments =
     APITypes.ListFeaturedExperimentsQueryVariables,
     APITypes.ListFeaturedExperimentsQuery
   >
-export const getUser = /* GraphQL */ `query GetUser($email: String!) {
-  getUser(email: $email) {
+export const getUser = /* GraphQL */ `query GetUser($id: ID!) {
+  getUser(id: $id) {
     id
     email
     name
@@ -88,19 +84,11 @@ export const getUser = /* GraphQL */ `query GetUser($email: String!) {
 }
 ` as GeneratedQuery<APITypes.GetUserQueryVariables, APITypes.GetUserQuery>
 export const listUsers = /* GraphQL */ `query ListUsers(
-  $email: String
   $filter: ModelUserFilterInput
   $limit: Int
   $nextToken: String
-  $sortDirection: ModelSortDirection
 ) {
-  listUsers(
-    email: $email
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    sortDirection: $sortDirection
-  ) {
+  listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       email
@@ -137,7 +125,7 @@ export const getExperiment = /* GraphQL */ `query GetExperiment($id: ID!) {
     secondaryImage
     createdAt
     updatedAt
-    userExperimentsEmail
+    userExperimentsId
     __typename
   }
 }
@@ -146,19 +134,11 @@ export const getExperiment = /* GraphQL */ `query GetExperiment($id: ID!) {
   APITypes.GetExperimentQuery
 >
 export const listExperiments = /* GraphQL */ `query ListExperiments(
-  $id: ID
   $filter: ModelExperimentFilterInput
   $limit: Int
   $nextToken: String
-  $sortDirection: ModelSortDirection
 ) {
-  listExperiments(
-    id: $id
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-    sortDirection: $sortDirection
-  ) {
+  listExperiments(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       description
@@ -173,7 +153,7 @@ export const listExperiments = /* GraphQL */ `query ListExperiments(
       secondaryImage
       createdAt
       updatedAt
-      userExperimentsEmail
+      userExperimentsId
       __typename
     }
     nextToken

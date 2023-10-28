@@ -178,7 +178,7 @@ export const createExperiment = /* GraphQL */ `mutation CreateExperiment(
     secondaryImage
     createdAt
     updatedAt
-    userExperimentsEmail
+    userExperimentsId
     __typename
   }
 }
@@ -212,7 +212,7 @@ export const updateExperiment = /* GraphQL */ `mutation UpdateExperiment(
     secondaryImage
     createdAt
     updatedAt
-    userExperimentsEmail
+    userExperimentsId
     __typename
   }
 }
@@ -246,7 +246,7 @@ export const deleteExperiment = /* GraphQL */ `mutation DeleteExperiment(
     secondaryImage
     createdAt
     updatedAt
-    userExperimentsEmail
+    userExperimentsId
     __typename
   }
 }

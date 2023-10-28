@@ -169,7 +169,7 @@ export const onCreateExperiment =
     secondaryImage
     createdAt
     updatedAt
-    userExperimentsEmail
+    userExperimentsId
     __typename
   }
 }
@@ -203,7 +203,7 @@ export const onUpdateExperiment =
     secondaryImage
     createdAt
     updatedAt
-    userExperimentsEmail
+    userExperimentsId
     __typename
   }
 }
@@ -237,7 +237,7 @@ export const onDeleteExperiment =
     secondaryImage
     createdAt
     updatedAt
-    userExperimentsEmail
+    userExperimentsId
     __typename
   }
 }
