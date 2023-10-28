@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
 
-export function middleware(req: NextRequest) {
+export function middleware(req: any) {
   // Check for specific AWS Amplify auth cookies
   const allCookies = req.cookies.getAll()
-  const parseForCookie = allCookies.find((cookie) =>
-    cookie.name.includes('CognitoIdentityServiceProvider'),
+  const parseForCookie = allCookies.find(
+    (cookie: { name: string | string[] }) =>
+      cookie.name.includes('CognitoIdentityServiceProvider'),
   )
 
   if (parseForCookie) {
