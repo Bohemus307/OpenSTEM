@@ -8,8 +8,8 @@
     "config": {
       "SourceDir": "src",
       "DistributionDir": ".next",
-      "BuildCommand": "pnpm start",
-      "StartCommand": "pnpm build"
+      "BuildCommand": "pnpm build",
+      "StartCommand": "pnpm start"
     }
   }
 }

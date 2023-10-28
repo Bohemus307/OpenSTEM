@@ -14,6 +14,9 @@
     "categories": {
       "auth": {
         "stemhube4c6f3eee4c6f3ee": {}
+      },
+      "api": {
+        "openstem": {}
       }
     }
   }
