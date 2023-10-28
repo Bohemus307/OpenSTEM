@@ -1,12 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 import { Popover, Menu, Transition } from '@headlessui/react'
-import {
-  BellIcon,
-  MagnifyingGlassIcon,
-  XMarkIcon,
-  Bars3Icon,
-} from '@heroicons/react/24/outline'
+import { BellIcon, XMarkIcon, Bars3Icon } from '@heroicons/react/24/outline'
 import { Fragment, useState } from 'react'
 import { Logo } from '@components/Logo'
 import { Auth } from 'aws-amplify'
@@ -114,13 +109,11 @@ export default function DashboardLayout({
                                     onClick={handleSignOut}
                                     className={classNames(
                                       active ? 'bg-gray-100' : '',
-                                      'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100',
+                                      'flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100',
                                     )}
                                   >
-                                    {item.name}
-                                    {loading && (
-                                      <Loader className="ml-4" size="small" />
-                                    )}
+                                    <span className="mr-4">{item.name}</span>
+                                    {loading && <Loader size="small" />}
                                   </button>
                                 ) : (
                                   <a

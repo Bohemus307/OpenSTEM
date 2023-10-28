@@ -7,11 +7,8 @@ import { Logo } from '@components/Logo'
 import { SelectField, TextField } from '@components/Fields'
 import { SlimLayout } from '@components/SlimLayout'
 import * as Yup from 'yup'
-import { Amplify, Auth } from 'aws-amplify'
+import { Auth } from 'aws-amplify'
 import { useRouter } from 'next/navigation'
-import awsExports from '../../../aws-exports'
-
-Amplify.configure({ ...awsExports, ssr: true })
 
 interface SignUpValues {
   firstName: string

@@ -1,69 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import { useAuthenticator } from '@aws-amplify/ui-react'
 import withAuthenticator from './withAuthenticator'
-import {
-  AcademicCapIcon,
-  BanknotesIcon,
-  CheckBadgeIcon,
-  ClockIcon,
-  ReceiptRefundIcon,
-  UsersIcon,
-} from '@heroicons/react/24/outline'
-import { classNames } from '@lib/utils/globals'
 import WelcomePanel from '@components/Dashboard/WelcomePanel'
 import Featured from '@components/Dashboard/Featured'
 
-const stats = [
-  { label: 'Vacation days left', value: 12 },
-  { label: 'Sick days left', value: 4 },
-  { label: 'Personal days left', value: 2 },
-]
-const actions = [
-  {
-    icon: ClockIcon,
-    name: 'Request time off',
-    href: '#',
-    iconForeground: 'text-teal-700',
-    iconBackground: 'bg-teal-50',
-  },
-  {
-    icon: CheckBadgeIcon,
-    name: 'Benefits',
-    href: '#',
-    iconForeground: 'text-purple-700',
-    iconBackground: 'bg-purple-50',
-  },
-  {
-    icon: UsersIcon,
-    name: 'Schedule a one-on-one',
-    href: '#',
-    iconForeground: 'text-sky-700',
-    iconBackground: 'bg-sky-50',
-  },
-  {
-    icon: BanknotesIcon,
-    name: 'Payroll',
-    href: '#',
-    iconForeground: 'text-yellow-700',
-    iconBackground: 'bg-yellow-50',
-  },
-  {
-    icon: ReceiptRefundIcon,
-    name: 'Submit an expense',
-    href: '#',
-    iconForeground: 'text-rose-700',
-    iconBackground: 'bg-rose-50',
-  },
-  {
-    icon: AcademicCapIcon,
-    name: 'Training',
-    href: '#',
-    iconForeground: 'text-indigo-700',
-    iconBackground: 'bg-indigo-50',
-  },
-]
 const recentHires = [
   {
     name: 'Leonard Krasner',
@@ -119,8 +60,6 @@ const announcements = [
 ]
 
 const Page = () => {
-  const { user } = useAuthenticator()
-
   return (
     <>
       <main className="-mt-24 pb-8">

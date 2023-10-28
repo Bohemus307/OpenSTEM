@@ -1,13 +1,9 @@
 'use client'
 
-import { Amplify } from 'aws-amplify'
-import awsExports from '../../../aws-exports'
 import Authenticator from './authenticator'
 import '@aws-amplify/ui-react/styles.css'
 import { useTheme, View } from '@aws-amplify/ui-react'
 import Link from 'next/link'
-
-Amplify.configure({ ...awsExports, ssr: true })
 
 import { Logo } from '@components/Logo'
 import { Hub } from 'aws-amplify'
