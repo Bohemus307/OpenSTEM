@@ -16,6 +16,8 @@ export const createFeaturedExperiment =
   createFeaturedExperiment(input: $input, condition: $condition) {
     id
     name
+    primaryImage
+    secondaryImage
     status
     description
     envData
@@ -41,6 +43,8 @@ export const updateFeaturedExperiment =
   updateFeaturedExperiment(input: $input, condition: $condition) {
     id
     name
+    primaryImage
+    secondaryImage
     status
     description
     envData
@@ -66,6 +70,8 @@ export const deleteFeaturedExperiment =
   deleteFeaturedExperiment(input: $input, condition: $condition) {
     id
     name
+    primaryImage
+    secondaryImage
     status
     description
     envData
@@ -168,6 +174,8 @@ export const createExperiment = /* GraphQL */ `mutation CreateExperiment(
     duration
     start
     end
+    primaryImage
+    secondaryImage
     createdAt
     updatedAt
     userExperimentsEmail
@@ -200,6 +208,8 @@ export const updateExperiment = /* GraphQL */ `mutation UpdateExperiment(
     duration
     start
     end
+    primaryImage
+    secondaryImage
     createdAt
     updatedAt
     userExperimentsEmail
@@ -232,6 +242,8 @@ export const deleteExperiment = /* GraphQL */ `mutation DeleteExperiment(
     duration
     start
     end
+    primaryImage
+    secondaryImage
     createdAt
     updatedAt
     userExperimentsEmail

@@ -5,6 +5,8 @@
 export type CreateFeaturedExperimentInput = {
   id?: string | null
   name: string
+  primaryImage?: string | null
+  secondaryImage?: string | null
   status?: string | null
   description?: string | null
   envData?: string | null
@@ -17,6 +19,8 @@ export type CreateFeaturedExperimentInput = {
 
 export type ModelFeaturedExperimentConditionInput = {
   name?: ModelStringInput | null
+  primaryImage?: ModelStringInput | null
+  secondaryImage?: ModelStringInput | null
   status?: ModelStringInput | null
   description?: ModelStringInput | null
   envData?: ModelStringInput | null
@@ -85,6 +89,8 @@ export type FeaturedExperiment = {
   __typename: 'FeaturedExperiment'
   id: string
   name: string
+  primaryImage?: string | null
+  secondaryImage?: string | null
   status?: string | null
   description?: string | null
   envData?: string | null
@@ -100,6 +106,8 @@ export type FeaturedExperiment = {
 export type UpdateFeaturedExperimentInput = {
   id: string
   name?: string | null
+  primaryImage?: string | null
+  secondaryImage?: string | null
   status?: string | null
   description?: string | null
   envData?: string | null
@@ -155,6 +163,8 @@ export type Experiment = {
   duration?: string | null
   start?: number | null
   end?: number | null
+  primaryImage?: string | null
+  secondaryImage?: string | null
   createdAt: string
   updatedAt: string
   userExperimentsEmail?: string | null
@@ -180,6 +190,8 @@ export type CreateExperimentInput = {
   duration?: string | null
   start?: number | null
   end?: number | null
+  primaryImage?: string | null
+  secondaryImage?: string | null
   userExperimentsEmail?: string | null
 }
 
@@ -192,6 +204,8 @@ export type ModelExperimentConditionInput = {
   duration?: ModelStringInput | null
   start?: ModelIntInput | null
   end?: ModelIntInput | null
+  primaryImage?: ModelStringInput | null
+  secondaryImage?: ModelStringInput | null
   and?: Array<ModelExperimentConditionInput | null> | null
   or?: Array<ModelExperimentConditionInput | null> | null
   not?: ModelExperimentConditionInput | null
@@ -208,6 +222,8 @@ export type UpdateExperimentInput = {
   duration?: string | null
   start?: number | null
   end?: number | null
+  primaryImage?: string | null
+  secondaryImage?: string | null
   userExperimentsEmail?: string | null
 }
 
@@ -218,6 +234,8 @@ export type DeleteExperimentInput = {
 export type ModelFeaturedExperimentFilterInput = {
   id?: ModelIDInput | null
   name?: ModelStringInput | null
+  primaryImage?: ModelStringInput | null
+  secondaryImage?: ModelStringInput | null
   status?: ModelStringInput | null
   description?: ModelStringInput | null
   envData?: ModelStringInput | null
@@ -283,6 +301,8 @@ export type ModelExperimentFilterInput = {
   duration?: ModelStringInput | null
   start?: ModelIntInput | null
   end?: ModelIntInput | null
+  primaryImage?: ModelStringInput | null
+  secondaryImage?: ModelStringInput | null
   and?: Array<ModelExperimentFilterInput | null> | null
   or?: Array<ModelExperimentFilterInput | null> | null
   not?: ModelExperimentFilterInput | null
@@ -292,6 +312,8 @@ export type ModelExperimentFilterInput = {
 export type ModelSubscriptionFeaturedExperimentFilterInput = {
   id?: ModelSubscriptionIDInput | null
   name?: ModelSubscriptionStringInput | null
+  primaryImage?: ModelSubscriptionStringInput | null
+  secondaryImage?: ModelSubscriptionStringInput | null
   status?: ModelSubscriptionStringInput | null
   description?: ModelSubscriptionStringInput | null
   envData?: ModelSubscriptionStringInput | null
@@ -364,6 +386,8 @@ export type ModelSubscriptionExperimentFilterInput = {
   duration?: ModelSubscriptionStringInput | null
   start?: ModelSubscriptionIntInput | null
   end?: ModelSubscriptionIntInput | null
+  primaryImage?: ModelSubscriptionStringInput | null
+  secondaryImage?: ModelSubscriptionStringInput | null
   and?: Array<ModelSubscriptionExperimentFilterInput | null> | null
   or?: Array<ModelSubscriptionExperimentFilterInput | null> | null
 }
@@ -378,6 +402,8 @@ export type CreateFeaturedExperimentMutation = {
     __typename: 'FeaturedExperiment'
     id: string
     name: string
+    primaryImage?: string | null
+    secondaryImage?: string | null
     status?: string | null
     description?: string | null
     envData?: string | null
@@ -401,6 +427,8 @@ export type UpdateFeaturedExperimentMutation = {
     __typename: 'FeaturedExperiment'
     id: string
     name: string
+    primaryImage?: string | null
+    secondaryImage?: string | null
     status?: string | null
     description?: string | null
     envData?: string | null
@@ -424,6 +452,8 @@ export type DeleteFeaturedExperimentMutation = {
     __typename: 'FeaturedExperiment'
     id: string
     name: string
+    primaryImage?: string | null
+    secondaryImage?: string | null
     status?: string | null
     description?: string | null
     envData?: string | null
@@ -522,6 +552,8 @@ export type CreateExperimentMutation = {
     duration?: string | null
     start?: number | null
     end?: number | null
+    primaryImage?: string | null
+    secondaryImage?: string | null
     createdAt: string
     updatedAt: string
     userExperimentsEmail?: string | null
@@ -553,6 +585,8 @@ export type UpdateExperimentMutation = {
     duration?: string | null
     start?: number | null
     end?: number | null
+    primaryImage?: string | null
+    secondaryImage?: string | null
     createdAt: string
     updatedAt: string
     userExperimentsEmail?: string | null
@@ -584,6 +618,8 @@ export type DeleteExperimentMutation = {
     duration?: string | null
     start?: number | null
     end?: number | null
+    primaryImage?: string | null
+    secondaryImage?: string | null
     createdAt: string
     updatedAt: string
     userExperimentsEmail?: string | null
@@ -599,6 +635,8 @@ export type GetFeaturedExperimentQuery = {
     __typename: 'FeaturedExperiment'
     id: string
     name: string
+    primaryImage?: string | null
+    secondaryImage?: string | null
     status?: string | null
     description?: string | null
     envData?: string | null
@@ -627,6 +665,8 @@ export type ListFeaturedExperimentsQuery = {
       __typename: 'FeaturedExperiment'
       id: string
       name: string
+      primaryImage?: string | null
+      secondaryImage?: string | null
       status?: string | null
       description?: string | null
       envData?: string | null
@@ -708,6 +748,8 @@ export type GetExperimentQuery = {
     duration?: string | null
     start?: number | null
     end?: number | null
+    primaryImage?: string | null
+    secondaryImage?: string | null
     createdAt: string
     updatedAt: string
     userExperimentsEmail?: string | null
@@ -736,6 +778,8 @@ export type ListExperimentsQuery = {
       duration?: string | null
       start?: number | null
       end?: number | null
+      primaryImage?: string | null
+      secondaryImage?: string | null
       createdAt: string
       updatedAt: string
       userExperimentsEmail?: string | null
@@ -753,6 +797,8 @@ export type OnCreateFeaturedExperimentSubscription = {
     __typename: 'FeaturedExperiment'
     id: string
     name: string
+    primaryImage?: string | null
+    secondaryImage?: string | null
     status?: string | null
     description?: string | null
     envData?: string | null
@@ -775,6 +821,8 @@ export type OnUpdateFeaturedExperimentSubscription = {
     __typename: 'FeaturedExperiment'
     id: string
     name: string
+    primaryImage?: string | null
+    secondaryImage?: string | null
     status?: string | null
     description?: string | null
     envData?: string | null
@@ -797,6 +845,8 @@ export type OnDeleteFeaturedExperimentSubscription = {
     __typename: 'FeaturedExperiment'
     id: string
     name: string
+    primaryImage?: string | null
+    secondaryImage?: string | null
     status?: string | null
     description?: string | null
     envData?: string | null
@@ -891,6 +941,8 @@ export type OnCreateExperimentSubscription = {
     duration?: string | null
     start?: number | null
     end?: number | null
+    primaryImage?: string | null
+    secondaryImage?: string | null
     createdAt: string
     updatedAt: string
     userExperimentsEmail?: string | null
@@ -921,6 +973,8 @@ export type OnUpdateExperimentSubscription = {
     duration?: string | null
     start?: number | null
     end?: number | null
+    primaryImage?: string | null
+    secondaryImage?: string | null
     createdAt: string
     updatedAt: string
     userExperimentsEmail?: string | null
@@ -951,6 +1005,8 @@ export type OnDeleteExperimentSubscription = {
     duration?: string | null
     start?: number | null
     end?: number | null
+    primaryImage?: string | null
+    secondaryImage?: string | null
     createdAt: string
     updatedAt: string
     userExperimentsEmail?: string | null

@@ -13,6 +13,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { classNames } from '@lib/utils/globals'
 import WelcomePanel from '@components/Dashboard/WelcomePanel'
+import Featured from '@components/Dashboard/Featured'
 
 const stats = [
   { label: 'Vacation days left', value: 12 },
@@ -137,6 +138,7 @@ const Page = () => {
                   <h2 className="sr-only" id="quick-links-title">
                     Current Featured Experiments
                   </h2>
+                  <Featured experiments={[]} />
                 </div>
               </section>
             </div>

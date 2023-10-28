@@ -15,6 +15,8 @@ export const onCreateFeaturedExperiment =
   onCreateFeaturedExperiment(filter: $filter) {
     id
     name
+    primaryImage
+    secondaryImage
     status
     description
     envData
@@ -39,6 +41,8 @@ export const onUpdateFeaturedExperiment =
   onUpdateFeaturedExperiment(filter: $filter) {
     id
     name
+    primaryImage
+    secondaryImage
     status
     description
     envData
@@ -63,6 +67,8 @@ export const onDeleteFeaturedExperiment =
   onDeleteFeaturedExperiment(filter: $filter) {
     id
     name
+    primaryImage
+    secondaryImage
     status
     description
     envData
@@ -159,6 +165,8 @@ export const onCreateExperiment =
     duration
     start
     end
+    primaryImage
+    secondaryImage
     createdAt
     updatedAt
     userExperimentsEmail
@@ -191,6 +199,8 @@ export const onUpdateExperiment =
     duration
     start
     end
+    primaryImage
+    secondaryImage
     createdAt
     updatedAt
     userExperimentsEmail
@@ -223,6 +233,8 @@ export const onDeleteExperiment =
     duration
     start
     end
+    primaryImage
+    secondaryImage
     createdAt
     updatedAt
     userExperimentsEmail

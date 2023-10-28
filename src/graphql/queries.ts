@@ -13,6 +13,8 @@ export const getFeaturedExperiment =
   getFeaturedExperiment(id: $id) {
     id
     name
+    primaryImage
+    secondaryImage
     status
     description
     envData
@@ -48,6 +50,8 @@ export const listFeaturedExperiments =
     items {
       id
       name
+      primaryImage
+      secondaryImage
       status
       description
       envData
@@ -129,6 +133,8 @@ export const getExperiment = /* GraphQL */ `query GetExperiment($id: ID!) {
     duration
     start
     end
+    primaryImage
+    secondaryImage
     createdAt
     updatedAt
     userExperimentsEmail
@@ -163,6 +169,8 @@ export const listExperiments = /* GraphQL */ `query ListExperiments(
       duration
       start
       end
+      primaryImage
+      secondaryImage
       createdAt
       updatedAt
       userExperimentsEmail

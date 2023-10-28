@@ -6,6 +6,8 @@ input AMPLIFY {
 type FeaturedExperiment @model {
   id: ID! @primaryKey
   name: String!
+  primaryImage: String
+  secondaryImage: String
   status: String
   description: String
   envData: String
@@ -34,4 +36,6 @@ type Experiment @model {
   duration: String
   start: AWSTimestamp
   end: AWSTimestamp
+  primaryImage: String
+  secondaryImage: String
 }

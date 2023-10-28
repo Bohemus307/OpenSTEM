@@ -1,29 +1,22 @@
 import Image from 'next/image'
 import {
-  Badge,
   Button,
   Card,
   Collection,
-  Divider,
-  Flex,
   Heading,
   View,
+  Text,
 } from '@aws-amplify/ui-react'
-const items = [
-  {
-    title: 'Milford - Room #1',
-    badges: ['Waterfront', 'Verified'],
-  },
-  {
-    title: 'Milford - Room #2',
-    badges: ['Mountain', 'Verified'],
-  },
-]
+import { FeaturedExperiment } from 'src/interfaces/featureExperiment'
 
-const Featured: React.FC = () => {
+interface FeaturedProps {
+  experiments: FeaturedExperiment[]
+}
+
+const Featured: React.FC<FeaturedProps> = ({ experiments }: FeaturedProps) => {
   return (
     <Collection
-      items={items}
+      items={experiments}
       type="list"
       direction="row"
       gap="20px"
@@ -37,30 +30,16 @@ const Featured: React.FC = () => {
           variation="outlined"
         >
           <Image
-            src="/road-to-milford-new-zealand-800w.jpg"
-            alt="Glittering stream with old log, snowy mountain peaks tower over a green field."
+            width={100}
+            height={100}
+            src={item.primaryImage}
+            alt="Featured Experiment Primary Image"
           />
           <View padding="xs">
-            <Flex>
-              {item.badges.map((badge) => (
-                <Badge
-                  key={badge}
-                  backgroundColor={
-                    badge === 'Waterfront'
-                      ? 'blue.40'
-                      : badge === 'Mountain'
-                      ? 'green.40'
-                      : 'yellow.40'
-                  }
-                >
-                  {badge}
-                </Badge>
-              ))}
-            </Flex>
-            <Divider padding="xs" />
-            <Heading padding="medium">{item.title}</Heading>
+            <Heading padding="medium">{item.name}</Heading>
+            <Text>{item.description}</Text>
             <Button variation="primary" isFullWidth>
-              Book it
+              CHeck It Out
             </Button>
           </View>
         </Card>
