@@ -7,16 +7,12 @@ import {
   View,
   Text,
 } from '@aws-amplify/ui-react'
-import { FeaturedExperiment } from 'src/interfaces/featureExperiment'
+import { featuredTempExperiments } from '@lib/utils/sample-data'
 
-interface FeaturedProps {
-  experiments: FeaturedExperiment[]
-}
-
-const Featured: React.FC<FeaturedProps> = ({ experiments }: FeaturedProps) => {
+const Featured: React.FC = () => {
   return (
     <Collection
-      items={experiments}
+      items={featuredTempExperiments}
       type="list"
       direction="row"
       gap="20px"
@@ -32,7 +28,7 @@ const Featured: React.FC<FeaturedProps> = ({ experiments }: FeaturedProps) => {
           <Image
             width={100}
             height={100}
-            src={item.primaryImage}
+            src={`${item.primaryImage}`}
             alt="Featured Experiment Primary Image"
           />
           <View padding="xs">

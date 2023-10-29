@@ -2,14 +2,8 @@
 'use client'
 
 import withAuthenticator from './withAuthenticator'
-import { Amplify } from 'aws-amplify'
-import awsExports from '../../aws-exports'
-
 import WelcomePanel from '@components/Dashboard/WelcomePanel'
 import Featured from '@components/Dashboard/Featured'
-import { featuredTempExperiments } from '@lib/utils/sample-data'
-
-Amplify.configure({ ...awsExports, ssr: true })
 
 const Page = () => {
   const recentHires = [
@@ -79,11 +73,11 @@ const Page = () => {
 
               {/* Featured Exp panel */}
               <section aria-labelledby="quick-links-title">
-                <div className="divide-y divide-gray-200 overflow-hidden rounded-lg bg-gray-200 shadow sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0">
+                <div>
                   <h2 className="sr-only" id="quick-links-title">
                     Current Featured Experiments
                   </h2>
-                  <Featured experiments={featuredTempExperiments} />
+                  <Featured />
                 </div>
               </section>
             </div>
