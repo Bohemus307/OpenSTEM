@@ -64,7 +64,7 @@ const Page = () => {
     <>
       <main className="-mt-24 pb-8">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-          <h1 className="sr-only">Featured Dashboard</h1>
+          <h1 className="sr-only">User Dashboard</h1>
           {/* Main 3 column grid */}
           <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8">
             {/* Left column */}

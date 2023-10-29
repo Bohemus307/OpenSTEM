@@ -118,7 +118,7 @@ function Plan({
   )
 }
 
-export function Pricing() {
+export function Current() {
   return (
     <section
       id="upcoming"

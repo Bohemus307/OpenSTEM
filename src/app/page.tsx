@@ -2,7 +2,7 @@ import { CallToAction } from '@components/Landing/CallToAction'
 import { Footer } from '@components/Landing/Footer'
 import { Header } from '@components/Landing/Header'
 import { Hero } from '@components/Landing/Hero'
-import { Pricing } from '@components/Landing/Pricing'
+import { Current } from '@components/Landing/Current'
 import { PrimaryFeatures } from '@components/Landing/PrimaryFeatures'
 import { SecondaryFeatures } from '@components/Landing/SecondaryFeatures'
 import { Testimonials } from '@components/Landing/Testimonials'
@@ -17,7 +17,7 @@ export default function Home() {
         <SecondaryFeatures />
         <CallToAction />
         <Testimonials />
-        <Pricing />
+        <Current />
       </main>
       <Footer />
     </>
