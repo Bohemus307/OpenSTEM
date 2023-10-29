@@ -7,8 +7,7 @@
 /* eslint-disable */
 import * as React from 'react'
 import { Button, Flex, Grid, TextField } from '@aws-amplify/ui-react'
-import { getOverrideProps } from '@aws-amplify/ui-react/internal'
-import { fetchByPath, validateField } from './utils'
+import { fetchByPath, getOverrideProps, validateField } from './utils'
 import { API } from 'aws-amplify'
 import { createExperiment } from '../graphql/mutations'
 export default function ExperimentCreateForm(props) {

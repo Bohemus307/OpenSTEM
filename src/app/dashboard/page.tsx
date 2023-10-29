@@ -2,8 +2,13 @@
 'use client'
 
 import withAuthenticator from './withAuthenticator'
+import { Amplify } from 'aws-amplify'
+import awsExports from '../../aws-exports'
+
 import WelcomePanel from '@components/Dashboard/WelcomePanel'
 import Featured from '@components/Dashboard/Featured'
+
+Amplify.configure({ ...awsExports, ssr: true })
 
 const recentHires = [
   {

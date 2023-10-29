@@ -1,17 +1,20 @@
 'use client'
 
-import Authenticator from './authenticator'
+import { useEffect, useState } from 'react'
+import { Amplify } from 'aws-amplify'
+import { Hub } from 'aws-amplify'
+import awsExports from '../../../aws-exports'
 import '@aws-amplify/ui-react/styles.css'
 import { useTheme, View } from '@aws-amplify/ui-react'
 import Link from 'next/link'
-
 import { Logo } from '@components/Logo'
-import { Hub } from 'aws-amplify'
-import { SlimLayout } from '@components/SlimLayout'
-
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { NavLink } from '@components/NavLink'
+import { SlimLayout } from '@components/SlimLayout'
+import { useRouter } from 'next/navigation'
+
+import Authenticator from './authenticator'
+
+Amplify.configure({ ...awsExports, ssr: true })
 
 const components = {
   Header() {
