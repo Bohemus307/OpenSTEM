@@ -10,30 +10,31 @@ import { Loader } from '@aws-amplify/ui-react'
 import React from 'react'
 import { classNames } from '@lib/utils/globals'
 
-const user = {
-  name: 'Chelsea Hagon',
-  email: 'chelsea.hagon@example.com',
-  role: 'Human Resources Manager',
-  imageUrl:
-    'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
-const navigation = [
-  { name: 'Featured', href: '#', current: true },
-  { name: 'Your Experiments', href: '#', current: false },
-  { name: 'Explore', href: '#', current: false },
-  // { name: 'Company Directory', href: '#', current: false },
-  // { name: 'Openings', href: '#', current: false },
-]
-const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const user = {
+    name: 'Chelsea Hagon',
+    email: 'chelsea.hagon@example.com',
+    role: 'Human Resources Manager',
+    imageUrl:
+      'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  }
+  const navigation = [
+    { name: 'Featured', href: '#', current: true },
+    { name: 'Your Experiments', href: '#', current: false },
+    { name: 'Explore', href: '#', current: false },
+    // { name: 'Company Directory', href: '#', current: false },
+    // { name: 'Openings', href: '#', current: false },
+  ]
+  const userNavigation = [
+    { name: 'Your Profile', href: '#' },
+    { name: 'Settings', href: '#' },
+    { name: 'Sign out', href: '#' },
+  ]
+
   const [loading, setLoading] = useState<boolean>(false)
   const router = useRouter()
 

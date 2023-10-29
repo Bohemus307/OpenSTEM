@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Amplify } from 'aws-amplify'
-import { Hub } from 'aws-amplify'
+// import { Hub } from 'aws-amplify'
 import awsExports from '../../../aws-exports'
 import '@aws-amplify/ui-react/styles.css'
 import { useTheme, View } from '@aws-amplify/ui-react'
@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { Logo } from '@components/Logo'
 import { NavLink } from '@components/NavLink'
 import { SlimLayout } from '@components/SlimLayout'
-import { useRouter } from 'next/navigation'
+// import { useRouter } from 'next/navigation'
 
 import Authenticator from './authenticator'
 
@@ -53,19 +53,19 @@ const components = {
 }
 
 export default function Login() {
-  const router = useRouter()
+  // const router = useRouter()
   const [loading, setLoading] = useState<boolean>(false)
 
-  useEffect(() => {
-    Hub.listen('auth', (data) => {
-      if (data?.payload?.event === 'signIn') {
-        router.push('/dashboard')
-        setLoading(false)
-      } else {
-        setLoading(true)
-      }
-    })
-  }, [router])
+  // useEffect(() => {
+  //   Hub.listen('auth', (data) => {
+  //     if (data?.payload?.event === 'signIn') {
+  //       router.push('/dashboard')
+  //       setLoading(false)
+  //     } else {
+  //       setLoading(true)
+  //     }
+  //   })
+  // }, [router])
 
   return (
     <SlimLayout>
