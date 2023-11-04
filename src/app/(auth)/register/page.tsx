@@ -47,7 +47,7 @@ const Register: React.FC = () => {
     } catch (error) {
       console.error('Sign-up error:', error)
     } finally {
-      router.push('/login')
+      router.push('api/auth/login')
     }
   }
 
@@ -71,7 +71,7 @@ const Register: React.FC = () => {
       <div className="mt-2 text-sm text-gray-700">
         Already on the list?{' '}
         <Link
-          href="/login"
+          href="api/auth/login"
           className="font-medium text-primary-500 hover:underline"
         >
           Sign in
@@ -110,15 +110,6 @@ const Register: React.FC = () => {
               name="email"
               type="email"
               autoComplete="email"
-              required
-              onChange={handleChange}
-            />
-            <TextField
-              className="col-span-full"
-              label="Password"
-              name="password"
-              type="password"
-              autoComplete="new-password"
               required
               onChange={handleChange}
             />

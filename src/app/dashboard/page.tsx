@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/client'
 import WelcomePanel from '@components/Dashboard/WelcomePanel'
 import Featured from '@components/Dashboard/Featured'
 
@@ -208,4 +209,4 @@ const Page = () => {
     </>
   )
 }
-export default Page
+export default withPageAuthRequired(Page)

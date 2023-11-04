@@ -9,6 +9,7 @@ import { Button } from '@components/Button'
 import { Container } from '@components/Container'
 import { Logo } from '@components/Logo'
 import { NavLink } from '@components/NavLink'
+import { useUser } from '@auth0/nextjs-auth0/client'
 
 function MobileNavLink({
   href,
@@ -98,6 +99,7 @@ function MobileNavigation() {
 }
 
 export function Header() {
+  const { user, isLoading } = useUser()
   return (
     <header className="py-10">
       <Container>
@@ -117,7 +119,11 @@ export function Header() {
           </div>
           <div className="flex w-1/3 items-center justify-end gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
-              <NavLink href="/login">Sign in</NavLink>
+              {user ? (
+                <NavLink href="/dashboard">Dashboard</NavLink>
+              ) : (
+                <NavLink href="api/auth/login">Sign in</NavLink>
+              )}
             </div>
             <Button href="/register" color="primary">
               <span>
