@@ -1,7 +1,4 @@
-import { useAuthenticator } from '@aws-amplify/ui-react'
-
 const WelcomePanel: React.FC = () => {
-  const { user } = useAuthenticator()
   return (
     <section aria-labelledby="profile-overview-title">
       <div className="overflow-hidden rounded-lg bg-white shadow">
@@ -19,7 +16,7 @@ const WelcomePanel: React.FC = () => {
                   Welcome back,
                 </p>
                 <p className="text-xl font-bold text-gray-900 sm:text-2xl">
-                  {user.attributes?.email}
+                  User
                 </p>
               </div>
             </div>

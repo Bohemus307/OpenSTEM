@@ -7,7 +7,6 @@ import { Logo } from '@components/Logo'
 import { SelectField, TextField } from '@components/Fields'
 import { SlimLayout } from '@components/SlimLayout'
 import * as Yup from 'yup'
-import { Auth } from 'aws-amplify'
 import { useRouter } from 'next/navigation'
 
 interface SignUpValues {
@@ -44,17 +43,6 @@ const Register: React.FC = () => {
 
   async function signUpUser(formValues: SignUpValues) {
     try {
-      // Use Amplify's Auth.signUp method to register the user with additional attributes
-      const signUpResponse = await Auth.signUp({
-        username: formValues.email,
-        password: formValues.password,
-        attributes: {
-          given_name: formValues.firstName,
-          family_name: formValues.lastName,
-          // add custom attributes here if needed
-        },
-      })
-      console.log(signUpResponse)
       alert('Sign-up successful!')
     } catch (error) {
       console.error('Sign-up error:', error)

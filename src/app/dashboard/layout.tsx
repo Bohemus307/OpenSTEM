@@ -5,52 +5,36 @@ import { Popover, Menu, Transition } from '@headlessui/react'
 import { BellIcon, XMarkIcon, Bars3Icon } from '@heroicons/react/24/outline'
 import { Fragment, useState } from 'react'
 import { Logo } from '@components/Logo'
-import { Auth } from 'aws-amplify'
-import { useRouter } from 'next/navigation'
-import { Loader } from '@aws-amplify/ui-react'
 import React from 'react'
 import { classNames } from '@lib/utils/globals'
 import Providers from './queryProvider'
+
+const user = {
+  name: 'Chelsea Hagon',
+  email: 'chelsea.hagon@example.com',
+  role: 'Human Resources Manager',
+  imageUrl:
+    'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+}
+const navigation = [
+  { name: 'Featured', href: '#', current: true },
+  { name: 'Your Experiments', href: '#', current: false },
+  { name: 'Explore', href: '#', current: false },
+  // { name: 'Company Directory', href: '#', current: false },
+  // { name: 'Openings', href: '#', current: false },
+]
+const userNavigation = [
+  { name: 'Your Profile', href: '#' },
+  { name: 'Settings', href: '#' },
+  { name: 'Sign out', href: '#' },
+]
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const user = {
-    name: 'Chelsea Hagon',
-    email: 'chelsea.hagon@example.com',
-    role: 'Human Resources Manager',
-    imageUrl:
-      'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-  }
-  const navigation = [
-    { name: 'Featured', href: '#', current: true },
-    { name: 'Your Experiments', href: '#', current: false },
-    { name: 'Explore', href: '#', current: false },
-    // { name: 'Company Directory', href: '#', current: false },
-    // { name: 'Openings', href: '#', current: false },
-  ]
-  const userNavigation = [
-    { name: 'Your Profile', href: '#' },
-    { name: 'Settings', href: '#' },
-    { name: 'Sign out', href: '#' },
-  ]
-
   const [loading, setLoading] = useState<boolean>(false)
-  const router = useRouter()
-
-  const handleSignOut = async () => {
-    try {
-      setLoading(true)
-      await Auth.signOut()
-      router.push('/')
-    } catch (error) {
-      console.error('Sign-out error:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
 
   return (
     <Providers>
@@ -110,14 +94,14 @@ export default function DashboardLayout({
                                 <>
                                   {item.name === 'Sign out' ? (
                                     <button
-                                      onClick={handleSignOut}
                                       className={classNames(
                                         active ? 'bg-gray-100' : '',
                                         'flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100',
                                       )}
                                     >
                                       <span className="mr-4">{item.name}</span>
-                                      {loading && <Loader size="small" />}
+                                      {/* {loading && <Loader size="small" />} */}
+                                      Loading ...
                                     </button>
                                   ) : (
                                     <a
@@ -277,13 +261,11 @@ export default function DashboardLayout({
                             {userNavigation.map((item) => (
                               <React.Fragment key={item.name}>
                                 {item.name === 'Sign out' ? (
-                                  <button
-                                    onClick={handleSignOut}
-                                    className="flex w-full items-center rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
-                                  >
+                                  <button className="flex w-full items-center rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800">
                                     {item.name}
                                     {loading && (
-                                      <Loader className="ml-4" size="small" />
+                                      // <Loader className="ml-4" size="small" />
+                                      <span className="ml-4">Loading ...</span>
                                     )}
                                   </button>
                                 ) : (
