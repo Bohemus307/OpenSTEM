@@ -1,4 +1,6 @@
+import { SunIcon, CloudIcon, ClockIcon } from '@heroicons/react/24/outline'
 import { User } from '../../interfaces'
+import { FeaturedExperiment } from 'src/interfaces/featureExperiment'
 
 /** Dummy user data. */
 export const sampleUserData: User[] = [
@@ -8,7 +10,7 @@ export const sampleUserData: User[] = [
   { id: 104, name: 'Dave' },
 ]
 
-export const featuredTempExperiments = [
+export const featuredTempExperiments: FeaturedExperiment[] = [
   {
     createdAt: '2023-10-28T20:35:20.102Z',
     description:
@@ -19,12 +21,40 @@ export const featuredTempExperiments = [
     id: '8fa8a74e-2ef9-430e-9ea2-6fca13f46850',
     name: 'Loblolly Pine Red Light Trials',
     nutrientData: 'tbd',
-    primaryImage: '/images/loblolly-sapling.jpg',
+    primaryImage: '/images/photos/loblolly-1.png',
     secondaryImage: 'none',
     sponsor: 'Pepsi',
+    sponsorIcon: '/images/logos/pepsi.png',
     start: 1698525139,
     status: 'active',
     updatedAt: '2023-10-28T20:35:20.102Z',
+    dataPoints: [
+      {
+        id: 1,
+        name: 'Temperature',
+        stat: 71.89,
+        symbol: '°',
+        prevStat: 69.59,
+        lastReading: 3000,
+        icon: SunIcon,
+      },
+      {
+        id: 2,
+        name: 'Humidity',
+        stat: 2.16,
+        prevStat: 9.8,
+        lastReading: 2000,
+        symbol: '%',
+        icon: CloudIcon,
+      },
+      {
+        id: 3,
+        name: 'Trial Began',
+        stat: '1/1/2024',
+        icon: ClockIcon,
+        symbol: '',
+      },
+    ],
   },
   {
     createdAt: '2023-10-28T20:36:31.253Z',
@@ -36,12 +66,40 @@ export const featuredTempExperiments = [
     id: '71c29594-7bfa-4ebe-9159-7202a20fc00f',
     name: 'OpenSTEM Lettuce Trials Alpha',
     nutrientData: 'tbd',
-    primaryImage: '/images/lettuce-1.jpeg',
+    primaryImage: '/images/photos/lettuce-1.png',
     secondaryImage: 'none',
-    sponsor: 'Rabbit Coalition',
+    sponsor: 'Charleston College',
+    sponsorIcon: '/images/logos/charleston-college.png',
     start: 1698525139,
     status: 'active',
     updatedAt: '2023-10-28T20:36:31.253Z',
+    dataPoints: [
+      {
+        id: 1,
+        name: 'Temperature',
+        stat: 82.89,
+        prevStat: 69.59,
+        lastReading: 5000,
+        symbol: '°',
+        icon: SunIcon,
+      },
+      {
+        id: 2,
+        name: 'Humidity',
+        stat: 16.16,
+        prevStat: 4.38,
+        lastReading: 1000,
+        symbol: '%',
+        icon: CloudIcon,
+      },
+      {
+        id: 3,
+        name: 'Trial Began',
+        stat: '12/13/2023',
+        symbol: '',
+        icon: ClockIcon,
+      },
+    ],
   },
   {
     createdAt: '2023-10-28T20:33:20.687Z',
@@ -53,11 +111,39 @@ export const featuredTempExperiments = [
     id: 'd023c9dc-bb52-4da5-b927-c22951206972',
     name: 'Yaupon Holly Trials',
     nutrientData: 'tbd',
-    primaryImage: '/images/Yaupon-Holly-1.jpg',
+    primaryImage: '/images/photos/hollyBerry-1.png',
     secondaryImage: 'None',
-    sponsor: 'Rural Electric',
+    sponsor: 'NASA',
+    sponsorIcon: '/images/logos/nasa.png',
     start: 1698525139,
     status: 'Active',
     updatedAt: '2023-10-28T20:33:20.687Z',
+    dataPoints: [
+      {
+        id: 1,
+        name: 'Temperature',
+        stat: 69.32,
+        prevStat: 69.59,
+        lastReading: 3000,
+        icon: SunIcon,
+        symbol: '°',
+      },
+      {
+        id: 2,
+        name: 'Humidity',
+        stat: 4.16,
+        prevStat: 7.98,
+        lastReading: 2000,
+        symbol: '%',
+        icon: CloudIcon,
+      },
+      {
+        id: 3,
+        name: 'Trial Began',
+        stat: '1/9/2024',
+        symbol: '',
+        icon: ClockIcon,
+      },
+    ],
   },
 ]

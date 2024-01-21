@@ -118,18 +118,20 @@ export function Header() {
             </div>
           </div>
           <div className="flex w-1/3 items-center justify-end gap-x-5 md:gap-x-8">
-            <div className="hidden md:block">
-              {user ? (
-                <NavLink href="/dashboard">Dashboard</NavLink>
-              ) : (
-                <NavLink href="api/auth/login">Sign in</NavLink>
-              )}
-            </div>
-            <Button href="/register" color="primary">
-              <span>
-                Get started <span className="hidden lg:inline">today</span>
-              </span>
-            </Button>
+            {user && !isLoading ? (
+              <Button href="/dashboard" color="primary">
+                <span>
+                  Check Out The{' '}
+                  <span className="hidden lg:inline">Experiments</span>
+                </span>
+              </Button>
+            ) : (
+              <Button href="/register" color="primary">
+                <span>
+                  Get started <span className="hidden lg:inline">today</span>
+                </span>
+              </Button>
+            )}
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
             </div>

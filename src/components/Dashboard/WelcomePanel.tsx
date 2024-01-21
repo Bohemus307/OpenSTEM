@@ -1,6 +1,9 @@
+import { useUser } from '@auth0/nextjs-auth0/client'
+
 const WelcomePanel: React.FC = () => {
+  const { user, isLoading } = useUser()
   return (
-    <section aria-labelledby="profile-overview-title">
+    <section className="w-full" aria-labelledby="profile-overview-title">
       <div className="overflow-hidden rounded-lg bg-white shadow">
         <h2 className="sr-only" id="profile-overview-title">
           Profile Overview
@@ -15,9 +18,11 @@ const WelcomePanel: React.FC = () => {
                 <p className="text-sm font-medium text-gray-600">
                   Welcome back,
                 </p>
-                <p className="text-xl font-bold text-gray-900 sm:text-2xl">
-                  User
-                </p>
+                {!isLoading && (
+                  <p className="text-xl font-bold text-gray-900 sm:text-2xl">
+                    {user?.name || 'OpenSTEM Hero'}
+                  </p>
+                )}
               </div>
             </div>
             <div className="mt-5 flex justify-center sm:mt-0">
