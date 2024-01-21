@@ -8,6 +8,7 @@ import { Logo } from '@components/Logo'
 import React from 'react'
 import { classNames } from '@lib/utils/globals'
 import Providers from './queryProvider'
+import { useUser } from '@auth0/nextjs-auth0/client'
 
 const user = {
   name: 'Chelsea Hagon',
@@ -26,7 +27,7 @@ const navigation = [
 const userNavigation = [
   { name: 'Your Profile', href: '#' },
   { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
+  { name: 'Sign out', href: 'api/auth/logout' },
 ]
 
 export default function DashboardLayout({
@@ -34,8 +35,6 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode
 }) {
-  const [loading, setLoading] = useState<boolean>(false)
-
   return (
     <Providers>
       <section>
@@ -76,7 +75,7 @@ export default function DashboardLayout({
                           <span className="sr-only">Open user menu</span>
                           <img
                             className="h-10 w-auto rounded-full"
-                            src={user.imageUrl}
+                            src={user?.imageUrl || ''}
                             alt=""
                           />
                         </Menu.Button>
@@ -91,30 +90,15 @@ export default function DashboardLayout({
                           {userNavigation.map((item) => (
                             <Menu.Item key={item.name}>
                               {({ active }) => (
-                                <>
-                                  {item.name === 'Sign out' ? (
-                                    <button
-                                      className={classNames(
-                                        active ? 'bg-gray-100' : '',
-                                        'flex w-full items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100',
-                                      )}
-                                    >
-                                      <span className="mr-4">{item.name}</span>
-                                      {/* {loading && <Loader size="small" />} */}
-                                      Loading ...
-                                    </button>
-                                  ) : (
-                                    <a
-                                      href={item.href}
-                                      className={classNames(
-                                        active ? 'bg-gray-100' : '',
-                                        'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100',
-                                      )}
-                                    >
-                                      {item.name}
-                                    </a>
+                                <a
+                                  href={item.href}
+                                  className={classNames(
+                                    active ? 'bg-gray-100' : '',
+                                    'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100',
                                   )}
-                                </>
+                                >
+                                  {item.name}
+                                </a>
                               )}
                             </Menu.Item>
                           ))}
@@ -258,25 +242,14 @@ export default function DashboardLayout({
                             </button>
                           </div>
                           <div className="mt-3 space-y-1 px-2">
-                            {userNavigation.map((item) => (
-                              <React.Fragment key={item.name}>
-                                {item.name === 'Sign out' ? (
-                                  <button className="flex w-full items-center rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800">
-                                    {item.name}
-                                    {loading && (
-                                      // <Loader className="ml-4" size="small" />
-                                      <span className="ml-4">Loading ...</span>
-                                    )}
-                                  </button>
-                                ) : (
-                                  <a
-                                    href={item.href}
-                                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
-                                  >
-                                    {item.name}
-                                  </a>
-                                )}
-                              </React.Fragment>
+                            {userNavigation.map((item, index) => (
+                              <a
+                                key={`id#${index}`}
+                                href={item.href}
+                                className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
+                              >
+                                {item.name}
+                              </a>
                             ))}
                           </div>
                         </div>
