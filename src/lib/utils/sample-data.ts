@@ -1,6 +1,6 @@
 import { SunIcon, CloudIcon, ClockIcon } from '@heroicons/react/24/outline'
 import { User } from '../../interfaces'
-import { FeaturedExperiment } from 'src/interfaces/featureExperiment'
+import { FeaturedExperiment } from 'src/interfaces/featuredExperiment'
 
 /** Dummy user data. */
 export const sampleUserData: User[] = [

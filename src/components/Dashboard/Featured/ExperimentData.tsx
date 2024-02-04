@@ -1,5 +1,5 @@
 import React from 'react'
-import { FeaturedExperiment } from 'src/interfaces/featureExperiment'
+import { FeaturedExperiment } from 'src/interfaces/featuredExperiment'
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
 import {
   ClockIcon,
@@ -56,7 +56,7 @@ const ExperimentData: React.FC<ExperimentDataProps> = ({
 
   return (
     <dl className="mt-8 grid w-full grid-cols-1 gap-3 lg:grid-cols-3">
-      {experiment.dataPoints.map((item) => (
+      {experiment?.dataPoints?.map((item) => (
         <div
           key={item.id}
           className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow sm:px-6 sm:pt-6"

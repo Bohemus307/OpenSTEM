@@ -7,7 +7,7 @@ import { Fragment, useState } from 'react'
 import { Logo } from '@components/Logo'
 import React from 'react'
 import { classNames } from '@lib/utils/globals'
-import Providers from './queryProvider'
+import { ReactQueryClientProvider } from './queryProvider'
 import { useUser } from '@auth0/nextjs-auth0/client'
 
 const user = {
@@ -36,7 +36,7 @@ export default function DashboardLayout({
   children: React.ReactNode
 }) {
   return (
-    <Providers>
+    <ReactQueryClientProvider>
       <section>
         <Popover
           as="header"
@@ -263,6 +263,6 @@ export default function DashboardLayout({
         </Popover>
         {children}
       </section>
-    </Providers>
+    </ReactQueryClientProvider>
   )
 }

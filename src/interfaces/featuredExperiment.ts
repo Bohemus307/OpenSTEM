@@ -17,6 +17,7 @@ export type FeaturedExperiment = {
   updatedAt: string
 }
 
+// local stat type is diff from api one for now
 export type Stat = {
   id: number
   name: string
