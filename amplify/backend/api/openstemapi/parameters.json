@@ -1,0 +1,6 @@
+{
+  "AppSyncApiName": "openstemapi",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthModeLastUpdated": "2024-01-26T23:32:35.098Z"
+}

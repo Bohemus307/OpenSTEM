@@ -4,7 +4,7 @@ const WelcomePanel: React.FC = () => {
   const { user, isLoading } = useUser()
   return (
     <section className="w-full" aria-labelledby="profile-overview-title">
-      <div className="overflow-hidden rounded-lg bg-white shadow">
+      <div className="overflow-hidden rounded-lg bg-gray-50 shadow">
         <h2 className="sr-only" id="profile-overview-title">
           Profile Overview
         </h2>

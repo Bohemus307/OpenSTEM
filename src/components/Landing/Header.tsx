@@ -118,7 +118,7 @@ export function Header() {
             </div>
           </div>
           <div className="flex w-1/3 items-center justify-end gap-x-5 md:gap-x-8">
-            {user && !isLoading ? (
+            {!isLoading && user ? (
               <Button href="/dashboard" color="primary">
                 <span>
                   Check Out The{' '}
