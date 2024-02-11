@@ -32,4 +32,8 @@ pnpm precommit
 
 ## Deploy With AWS AMplify
 
+```bsh
+pnpm build
+```
+
 ### CI/CD setup in github on main so just precommit and make a feature branch
