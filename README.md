@@ -30,10 +30,6 @@ pnpm dev
 pnpm precommit
 ```
 
-## Deploy With Vercel
+## Deploy With AWS AMplify
 
 ### CI/CD setup in github on main so just precommit and make a feature branch
-
-## Notes
-
-None currently
