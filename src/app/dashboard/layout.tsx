@@ -43,7 +43,7 @@ export default function DashboardLayout({
         >
           {({ open }) => (
             <>
-              <div className="mx-auto max-w-3xl px-4 pt-2 sm:px-6 lg:max-w-7xl lg:px-8 lg:pt-0">
+              <div className="mx-auto max-w-3xl px-4 pt-2 sm:px-6 lg:max-w-full lg:px-8 lg:pt-0">
                 <div className="relative flex flex-wrap items-center justify-center lg:justify-between">
                   {/* Logo */}
                   <div className="absolute left-0 flex-shrink-0 lg:static">
