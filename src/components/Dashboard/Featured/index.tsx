@@ -1,4 +1,4 @@
-import { featuredTempExperiments } from '@lib/utils/sample-data'
+// import { featuredTempExperiments } from '@lib/utils/sample-data'
 import ExperimentCard from './FeaturedExperimentCard'
 import useGetFeaturedExperimentsList from '@hooks/useGetFeaturedExperimentList'
 import { FeaturedExperiment } from 'src/interfaces/featuredExperiment'

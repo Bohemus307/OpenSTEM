@@ -8,7 +8,6 @@ import { Logo } from '@components/Logo'
 import React from 'react'
 import { classNames } from '@lib/utils/globals'
 import { ReactQueryClientProvider } from './queryProvider'
-import { useUser } from '@auth0/nextjs-auth0/client'
 
 const user = {
   name: 'Chelsea Hagon',

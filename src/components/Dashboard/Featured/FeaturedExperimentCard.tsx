@@ -32,7 +32,7 @@ const FeaturedExperimentCard: React.FC<FeaturedExperimentCardProps> = ({
               <p className="w-10/12">{experiment.description}</p>
               <ExperimentData experiment={experiment} />
             </div>
-            {experiment.sponsor && experiment.sponsorIcon && (
+            {experiment.sponsor && experiment.sponsorIcon ? (
               <div className="flex items-end justify-end pt-12">
                 <span className="flex items-center gap-4 font-medium">
                   Funded by {experiment.sponsor}{' '}
@@ -42,6 +42,12 @@ const FeaturedExperimentCard: React.FC<FeaturedExperimentCardProps> = ({
                   src={experiment.sponsorIcon}
                   alt={'experiment sponsor icon'}
                 /> */}
+                </span>
+              </div>
+            ) : (
+              <div className="flex items-end justify-end pt-12">
+                <span className="flex items-center gap-4 font-medium">
+                  No Current Sponsor
                 </span>
               </div>
             )}
