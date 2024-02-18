@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { FeaturedExperiment } from 'src/interfaces/featuredExperiment'
 import Link from 'next/link'
-import ExperimentData from './ExperimentData'
-import { GiftIcon } from '@heroicons/react/24/solid'
+import ExperimentData, { ExperimentDataType } from './ExperimentData'
+import {
+  ClockIcon,
+  CloudIcon,
+  GiftIcon,
+  SunIcon,
+} from '@heroicons/react/24/solid'
+import { generateStats } from '@lib/utils/createData'
 
 interface FeaturedExperimentCardProps {
   experiment: FeaturedExperiment
@@ -11,7 +17,29 @@ interface FeaturedExperimentCardProps {
 const FeaturedExperimentCard: React.FC<FeaturedExperimentCardProps> = ({
   experiment,
 }: FeaturedExperimentCardProps) => {
-  console.log('EXPERIMENT ', experiment)
+  const [currentData, setCurrentData] = useState<ExperimentDataType>()
+
+  // create fake data for now
+  useEffect(() => {
+    if (experiment) {
+      const temperatureData = generateStats('Temperature', SunIcon, '°', 69.59)
+      const humidityData = generateStats('Humidity', CloudIcon, '%', 9.59)
+      const trialData = {
+        id: 3,
+        name: 'Trial Began',
+        stat: '1/1/2024',
+        icon: ClockIcon,
+        symbol: '',
+      }
+      const experimentData = {
+        temperature: temperatureData,
+        humidity: humidityData,
+        trial: trialData,
+      }
+      setCurrentData(experimentData)
+    }
+  }, [experiment])
+
   return (
     <div className="h-max-min flex rounded-lg bg-gray-50 p-4 shadow hover:opacity-80 lg:h-[455px]">
       {experiment && (
@@ -31,7 +59,7 @@ const FeaturedExperimentCard: React.FC<FeaturedExperimentCardProps> = ({
             </h2>
             <div className="text-md w-full pt-4 font-medium">
               <p className="w-10/12">{experiment.description}</p>
-              {/* <ExperimentData experiment={experiment} /> */}
+              {currentData && <ExperimentData experimentData={currentData} />}
             </div>
             {experiment.sponsor && experiment.sponsorIcon ? (
               <div className="flex items-end justify-end pt-12">
@@ -46,12 +74,11 @@ const FeaturedExperimentCard: React.FC<FeaturedExperimentCardProps> = ({
                 </span>
               </div>
             ) : (
-              <div className="flex items-end justify-end pt-12">
-                <span className="flex items-center gap-4 font-medium">
-                  No Current Sponsor
-                </span>
-                <GiftIcon className="h-5 w-5 text-primary-600" />
-                <span>Sponsor this Experiement by clicking here!</span>
+              <div className="flex flex-col items-center">
+                <div className="border-1 flex h-12 w-12 items-center justify-center rounded-md border bg-primary-500">
+                  <GiftIcon className="text-primary-600" />
+                </div>
+                <span className="text-xs">No Current Sponsor</span>
               </div>
             )}
           </div>
