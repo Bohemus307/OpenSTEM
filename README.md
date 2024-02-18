@@ -10,6 +10,8 @@ Trialing application that supports the OpenSTEM Hubs
 
 [ ] - AWS CLI
 
+[ ] - AWS Amplify
+
 ## How to use it?
 
 ### Install dependencies
@@ -24,16 +26,18 @@ pnpm install
 pnpm dev
 ```
 
-### Pre Commit to Github
+### Pre Commit to Github and Deploy to Amplify
 
 ```bsh
 pnpm precommit
 ```
 
-## Deploy With AWS AMplify
+## Build locally
 
 ```bsh
 pnpm build
 ```
 
-### CI/CD setup in github on main so just precommit and make a feature branch
+### CI/CD setup in github on main so just precommit and make a feature branch on merge changes will deploy
+
+### Amplify CLI Commands found online in documentation [AmplifyDocs](https://docs.amplify.aws)

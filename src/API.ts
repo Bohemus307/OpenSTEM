@@ -2,50 +2,22 @@
 /* eslint-disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateFeaturedExperimentInput = {
+export type CreateUserInput = {
   id?: string | null
-  experiment_id?: string | null
   name?: string | null
-  primaryImage?: string | null
-  secondaryImage?: string | null
-  status?: string | null
-  description?: string | null
-  envData?: string | null
-  nutrientData?: string | null
-  duration?: string | null
-  start?: number | null
-  end?: number | null
-  sponsor?: string | null
-  dataPoints?: Array<StatInput | null> | null
-  sponsorIcon?: string | null
-  createdAt?: string | null
-  updatedAt?: string | null
+  email: string
+  imageUrl?: string | null
+  _version?: number | null
 }
 
-export type StatInput = {
-  id: string
-  dataType?: string | null
-}
-
-export type ModelFeaturedExperimentConditionInput = {
-  experiment_id?: ModelStringInput | null
+export type ModelUserConditionInput = {
   name?: ModelStringInput | null
-  primaryImage?: ModelStringInput | null
-  secondaryImage?: ModelStringInput | null
-  status?: ModelStringInput | null
-  description?: ModelStringInput | null
-  envData?: ModelStringInput | null
-  nutrientData?: ModelStringInput | null
-  duration?: ModelStringInput | null
-  start?: ModelIntInput | null
-  end?: ModelIntInput | null
-  sponsor?: ModelStringInput | null
-  sponsorIcon?: ModelStringInput | null
-  createdAt?: ModelStringInput | null
-  updatedAt?: ModelStringInput | null
-  and?: Array<ModelFeaturedExperimentConditionInput | null> | null
-  or?: Array<ModelFeaturedExperimentConditionInput | null> | null
-  not?: ModelFeaturedExperimentConditionInput | null
+  email?: ModelStringInput | null
+  imageUrl?: ModelStringInput | null
+  and?: Array<ModelUserConditionInput | null> | null
+  or?: Array<ModelUserConditionInput | null> | null
+  not?: ModelUserConditionInput | null
+  _deleted?: ModelBooleanInput | null
 }
 
 export type ModelStringInput = {
@@ -87,16 +59,71 @@ export type ModelSizeInput = {
   between?: Array<number | null> | null
 }
 
-export type ModelIntInput = {
-  ne?: number | null
-  eq?: number | null
-  le?: number | null
-  lt?: number | null
-  ge?: number | null
-  gt?: number | null
-  between?: Array<number | null> | null
+export type ModelBooleanInput = {
+  ne?: boolean | null
+  eq?: boolean | null
   attributeExists?: boolean | null
   attributeType?: ModelAttributeTypes | null
+}
+
+export type User = {
+  __typename: 'User'
+  id: string
+  name?: string | null
+  email: string
+  imageUrl?: string | null
+  createdAt: string
+  updatedAt: string
+  _version: number
+  _deleted?: boolean | null
+  _lastChangedAt: number
+}
+
+export type UpdateUserInput = {
+  id: string
+  name?: string | null
+  email?: string | null
+  imageUrl?: string | null
+  _version?: number | null
+}
+
+export type DeleteUserInput = {
+  id: string
+  _version?: number | null
+}
+
+export type CreateFeaturedExperimentInput = {
+  id?: string | null
+  experiment_id?: string | null
+  name?: string | null
+  primaryImage?: string | null
+  secondaryImage?: string | null
+  status?: string | null
+  description?: string | null
+  duration?: string | null
+  sponsor?: string | null
+  sponsorIcon?: string | null
+  createdAt?: string | null
+  updatedAt?: string | null
+  _version?: number | null
+}
+
+export type ModelFeaturedExperimentConditionInput = {
+  experiment_id?: ModelStringInput | null
+  name?: ModelStringInput | null
+  primaryImage?: ModelStringInput | null
+  secondaryImage?: ModelStringInput | null
+  status?: ModelStringInput | null
+  description?: ModelStringInput | null
+  duration?: ModelStringInput | null
+  sponsor?: ModelStringInput | null
+  sponsorIcon?: ModelStringInput | null
+  createdAt?: ModelStringInput | null
+  updatedAt?: ModelStringInput | null
+  and?: Array<ModelFeaturedExperimentConditionInput | null> | null
+  or?: Array<ModelFeaturedExperimentConditionInput | null> | null
+  not?: ModelFeaturedExperimentConditionInput | null
+  _deleted?: ModelBooleanInput | null
 }
 
 export type FeaturedExperiment = {
@@ -108,22 +135,14 @@ export type FeaturedExperiment = {
   secondaryImage?: string | null
   status?: string | null
   description?: string | null
-  envData?: string | null
-  nutrientData?: string | null
   duration?: string | null
-  start?: number | null
-  end?: number | null
   sponsor?: string | null
-  dataPoints?: Array<Stat | null> | null
   sponsorIcon?: string | null
   createdAt?: string | null
   updatedAt?: string | null
-}
-
-export type Stat = {
-  __typename: 'Stat'
-  id: string
-  dataType?: string | null
+  _version: number
+  _deleted?: boolean | null
+  _lastChangedAt: number
 }
 
 export type UpdateFeaturedExperimentInput = {
@@ -134,42 +153,28 @@ export type UpdateFeaturedExperimentInput = {
   secondaryImage?: string | null
   status?: string | null
   description?: string | null
-  envData?: string | null
-  nutrientData?: string | null
   duration?: string | null
-  start?: number | null
-  end?: number | null
   sponsor?: string | null
-  dataPoints?: Array<StatInput | null> | null
   sponsorIcon?: string | null
   createdAt?: string | null
   updatedAt?: string | null
+  _version?: number | null
 }
 
 export type DeleteFeaturedExperimentInput = {
   id: string
+  _version?: number | null
 }
 
-export type ModelFeaturedExperimentFilterInput = {
+export type ModelUserFilterInput = {
   id?: ModelIDInput | null
-  experiment_id?: ModelStringInput | null
   name?: ModelStringInput | null
-  primaryImage?: ModelStringInput | null
-  secondaryImage?: ModelStringInput | null
-  status?: ModelStringInput | null
-  description?: ModelStringInput | null
-  envData?: ModelStringInput | null
-  nutrientData?: ModelStringInput | null
-  duration?: ModelStringInput | null
-  start?: ModelIntInput | null
-  end?: ModelIntInput | null
-  sponsor?: ModelStringInput | null
-  sponsorIcon?: ModelStringInput | null
-  createdAt?: ModelStringInput | null
-  updatedAt?: ModelStringInput | null
-  and?: Array<ModelFeaturedExperimentFilterInput | null> | null
-  or?: Array<ModelFeaturedExperimentFilterInput | null> | null
-  not?: ModelFeaturedExperimentFilterInput | null
+  email?: ModelStringInput | null
+  imageUrl?: ModelStringInput | null
+  and?: Array<ModelUserFilterInput | null> | null
+  or?: Array<ModelUserFilterInput | null> | null
+  not?: ModelUserFilterInput | null
+  _deleted?: ModelBooleanInput | null
 }
 
 export type ModelIDInput = {
@@ -188,31 +193,47 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null
 }
 
+export type ModelUserConnection = {
+  __typename: 'ModelUserConnection'
+  items: Array<User | null>
+  nextToken?: string | null
+  startedAt?: number | null
+}
+
+export type ModelFeaturedExperimentFilterInput = {
+  id?: ModelIDInput | null
+  experiment_id?: ModelStringInput | null
+  name?: ModelStringInput | null
+  primaryImage?: ModelStringInput | null
+  secondaryImage?: ModelStringInput | null
+  status?: ModelStringInput | null
+  description?: ModelStringInput | null
+  duration?: ModelStringInput | null
+  sponsor?: ModelStringInput | null
+  sponsorIcon?: ModelStringInput | null
+  createdAt?: ModelStringInput | null
+  updatedAt?: ModelStringInput | null
+  and?: Array<ModelFeaturedExperimentFilterInput | null> | null
+  or?: Array<ModelFeaturedExperimentFilterInput | null> | null
+  not?: ModelFeaturedExperimentFilterInput | null
+  _deleted?: ModelBooleanInput | null
+}
+
 export type ModelFeaturedExperimentConnection = {
   __typename: 'ModelFeaturedExperimentConnection'
   items: Array<FeaturedExperiment | null>
   nextToken?: string | null
+  startedAt?: number | null
 }
 
-export type ModelSubscriptionFeaturedExperimentFilterInput = {
+export type ModelSubscriptionUserFilterInput = {
   id?: ModelSubscriptionIDInput | null
-  experiment_id?: ModelSubscriptionStringInput | null
   name?: ModelSubscriptionStringInput | null
-  primaryImage?: ModelSubscriptionStringInput | null
-  secondaryImage?: ModelSubscriptionStringInput | null
-  status?: ModelSubscriptionStringInput | null
-  description?: ModelSubscriptionStringInput | null
-  envData?: ModelSubscriptionStringInput | null
-  nutrientData?: ModelSubscriptionStringInput | null
-  duration?: ModelSubscriptionStringInput | null
-  start?: ModelSubscriptionIntInput | null
-  end?: ModelSubscriptionIntInput | null
-  sponsor?: ModelSubscriptionStringInput | null
-  sponsorIcon?: ModelSubscriptionStringInput | null
-  createdAt?: ModelSubscriptionStringInput | null
-  updatedAt?: ModelSubscriptionStringInput | null
-  and?: Array<ModelSubscriptionFeaturedExperimentFilterInput | null> | null
-  or?: Array<ModelSubscriptionFeaturedExperimentFilterInput | null> | null
+  email?: ModelSubscriptionStringInput | null
+  imageUrl?: ModelSubscriptionStringInput | null
+  and?: Array<ModelSubscriptionUserFilterInput | null> | null
+  or?: Array<ModelSubscriptionUserFilterInput | null> | null
+  _deleted?: ModelBooleanInput | null
 }
 
 export type ModelSubscriptionIDInput = {
@@ -245,16 +266,82 @@ export type ModelSubscriptionStringInput = {
   notIn?: Array<string | null> | null
 }
 
-export type ModelSubscriptionIntInput = {
-  ne?: number | null
-  eq?: number | null
-  le?: number | null
-  lt?: number | null
-  ge?: number | null
-  gt?: number | null
-  between?: Array<number | null> | null
-  in?: Array<number | null> | null
-  notIn?: Array<number | null> | null
+export type ModelSubscriptionFeaturedExperimentFilterInput = {
+  id?: ModelSubscriptionIDInput | null
+  experiment_id?: ModelSubscriptionStringInput | null
+  name?: ModelSubscriptionStringInput | null
+  primaryImage?: ModelSubscriptionStringInput | null
+  secondaryImage?: ModelSubscriptionStringInput | null
+  status?: ModelSubscriptionStringInput | null
+  description?: ModelSubscriptionStringInput | null
+  duration?: ModelSubscriptionStringInput | null
+  sponsor?: ModelSubscriptionStringInput | null
+  sponsorIcon?: ModelSubscriptionStringInput | null
+  createdAt?: ModelSubscriptionStringInput | null
+  updatedAt?: ModelSubscriptionStringInput | null
+  and?: Array<ModelSubscriptionFeaturedExperimentFilterInput | null> | null
+  or?: Array<ModelSubscriptionFeaturedExperimentFilterInput | null> | null
+  _deleted?: ModelBooleanInput | null
+}
+
+export type CreateUserMutationVariables = {
+  input: CreateUserInput
+  condition?: ModelUserConditionInput | null
+}
+
+export type CreateUserMutation = {
+  createUser?: {
+    __typename: 'User'
+    id: string
+    name?: string | null
+    email: string
+    imageUrl?: string | null
+    createdAt: string
+    updatedAt: string
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
+  } | null
+}
+
+export type UpdateUserMutationVariables = {
+  input: UpdateUserInput
+  condition?: ModelUserConditionInput | null
+}
+
+export type UpdateUserMutation = {
+  updateUser?: {
+    __typename: 'User'
+    id: string
+    name?: string | null
+    email: string
+    imageUrl?: string | null
+    createdAt: string
+    updatedAt: string
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
+  } | null
+}
+
+export type DeleteUserMutationVariables = {
+  input: DeleteUserInput
+  condition?: ModelUserConditionInput | null
+}
+
+export type DeleteUserMutation = {
+  deleteUser?: {
+    __typename: 'User'
+    id: string
+    name?: string | null
+    email: string
+    imageUrl?: string | null
+    createdAt: string
+    updatedAt: string
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
+  } | null
 }
 
 export type CreateFeaturedExperimentMutationVariables = {
@@ -272,20 +359,14 @@ export type CreateFeaturedExperimentMutation = {
     secondaryImage?: string | null
     status?: string | null
     description?: string | null
-    envData?: string | null
-    nutrientData?: string | null
     duration?: string | null
-    start?: number | null
-    end?: number | null
     sponsor?: string | null
-    dataPoints?: Array<{
-      __typename: 'Stat'
-      id: string
-      dataType?: string | null
-    } | null> | null
     sponsorIcon?: string | null
     createdAt?: string | null
     updatedAt?: string | null
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
   } | null
 }
 
@@ -304,20 +385,14 @@ export type UpdateFeaturedExperimentMutation = {
     secondaryImage?: string | null
     status?: string | null
     description?: string | null
-    envData?: string | null
-    nutrientData?: string | null
     duration?: string | null
-    start?: number | null
-    end?: number | null
     sponsor?: string | null
-    dataPoints?: Array<{
-      __typename: 'Stat'
-      id: string
-      dataType?: string | null
-    } | null> | null
     sponsorIcon?: string | null
     createdAt?: string | null
     updatedAt?: string | null
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
   } | null
 }
 
@@ -336,20 +411,86 @@ export type DeleteFeaturedExperimentMutation = {
     secondaryImage?: string | null
     status?: string | null
     description?: string | null
-    envData?: string | null
-    nutrientData?: string | null
     duration?: string | null
-    start?: number | null
-    end?: number | null
     sponsor?: string | null
-    dataPoints?: Array<{
-      __typename: 'Stat'
-      id: string
-      dataType?: string | null
-    } | null> | null
     sponsorIcon?: string | null
     createdAt?: string | null
     updatedAt?: string | null
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
+  } | null
+}
+
+export type GetUserQueryVariables = {
+  id: string
+}
+
+export type GetUserQuery = {
+  getUser?: {
+    __typename: 'User'
+    id: string
+    name?: string | null
+    email: string
+    imageUrl?: string | null
+    createdAt: string
+    updatedAt: string
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
+  } | null
+}
+
+export type ListUsersQueryVariables = {
+  filter?: ModelUserFilterInput | null
+  limit?: number | null
+  nextToken?: string | null
+}
+
+export type ListUsersQuery = {
+  listUsers?: {
+    __typename: 'ModelUserConnection'
+    items: Array<{
+      __typename: 'User'
+      id: string
+      name?: string | null
+      email: string
+      imageUrl?: string | null
+      createdAt: string
+      updatedAt: string
+      _version: number
+      _deleted?: boolean | null
+      _lastChangedAt: number
+    } | null>
+    nextToken?: string | null
+    startedAt?: number | null
+  } | null
+}
+
+export type SyncUsersQueryVariables = {
+  filter?: ModelUserFilterInput | null
+  limit?: number | null
+  nextToken?: string | null
+  lastSync?: number | null
+}
+
+export type SyncUsersQuery = {
+  syncUsers?: {
+    __typename: 'ModelUserConnection'
+    items: Array<{
+      __typename: 'User'
+      id: string
+      name?: string | null
+      email: string
+      imageUrl?: string | null
+      createdAt: string
+      updatedAt: string
+      _version: number
+      _deleted?: boolean | null
+      _lastChangedAt: number
+    } | null>
+    nextToken?: string | null
+    startedAt?: number | null
   } | null
 }
 
@@ -367,20 +508,14 @@ export type GetFeaturedExperimentQuery = {
     secondaryImage?: string | null
     status?: string | null
     description?: string | null
-    envData?: string | null
-    nutrientData?: string | null
     duration?: string | null
-    start?: number | null
-    end?: number | null
     sponsor?: string | null
-    dataPoints?: Array<{
-      __typename: 'Stat'
-      id: string
-      dataType?: string | null
-    } | null> | null
     sponsorIcon?: string | null
     createdAt?: string | null
     updatedAt?: string | null
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
   } | null
 }
 
@@ -402,17 +537,107 @@ export type ListFeaturedExperimentsQuery = {
       secondaryImage?: string | null
       status?: string | null
       description?: string | null
-      envData?: string | null
-      nutrientData?: string | null
       duration?: string | null
-      start?: number | null
-      end?: number | null
       sponsor?: string | null
       sponsorIcon?: string | null
       createdAt?: string | null
       updatedAt?: string | null
+      _version: number
+      _deleted?: boolean | null
+      _lastChangedAt: number
     } | null>
     nextToken?: string | null
+    startedAt?: number | null
+  } | null
+}
+
+export type SyncFeaturedExperimentsQueryVariables = {
+  filter?: ModelFeaturedExperimentFilterInput | null
+  limit?: number | null
+  nextToken?: string | null
+  lastSync?: number | null
+}
+
+export type SyncFeaturedExperimentsQuery = {
+  syncFeaturedExperiments?: {
+    __typename: 'ModelFeaturedExperimentConnection'
+    items: Array<{
+      __typename: 'FeaturedExperiment'
+      id: string
+      experiment_id?: string | null
+      name?: string | null
+      primaryImage?: string | null
+      secondaryImage?: string | null
+      status?: string | null
+      description?: string | null
+      duration?: string | null
+      sponsor?: string | null
+      sponsorIcon?: string | null
+      createdAt?: string | null
+      updatedAt?: string | null
+      _version: number
+      _deleted?: boolean | null
+      _lastChangedAt: number
+    } | null>
+    nextToken?: string | null
+    startedAt?: number | null
+  } | null
+}
+
+export type OnCreateUserSubscriptionVariables = {
+  filter?: ModelSubscriptionUserFilterInput | null
+}
+
+export type OnCreateUserSubscription = {
+  onCreateUser?: {
+    __typename: 'User'
+    id: string
+    name?: string | null
+    email: string
+    imageUrl?: string | null
+    createdAt: string
+    updatedAt: string
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
+  } | null
+}
+
+export type OnUpdateUserSubscriptionVariables = {
+  filter?: ModelSubscriptionUserFilterInput | null
+}
+
+export type OnUpdateUserSubscription = {
+  onUpdateUser?: {
+    __typename: 'User'
+    id: string
+    name?: string | null
+    email: string
+    imageUrl?: string | null
+    createdAt: string
+    updatedAt: string
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
+  } | null
+}
+
+export type OnDeleteUserSubscriptionVariables = {
+  filter?: ModelSubscriptionUserFilterInput | null
+}
+
+export type OnDeleteUserSubscription = {
+  onDeleteUser?: {
+    __typename: 'User'
+    id: string
+    name?: string | null
+    email: string
+    imageUrl?: string | null
+    createdAt: string
+    updatedAt: string
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
   } | null
 }
 
@@ -430,20 +655,14 @@ export type OnCreateFeaturedExperimentSubscription = {
     secondaryImage?: string | null
     status?: string | null
     description?: string | null
-    envData?: string | null
-    nutrientData?: string | null
     duration?: string | null
-    start?: number | null
-    end?: number | null
     sponsor?: string | null
-    dataPoints?: Array<{
-      __typename: 'Stat'
-      id: string
-      dataType?: string | null
-    } | null> | null
     sponsorIcon?: string | null
     createdAt?: string | null
     updatedAt?: string | null
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
   } | null
 }
 
@@ -461,20 +680,14 @@ export type OnUpdateFeaturedExperimentSubscription = {
     secondaryImage?: string | null
     status?: string | null
     description?: string | null
-    envData?: string | null
-    nutrientData?: string | null
     duration?: string | null
-    start?: number | null
-    end?: number | null
     sponsor?: string | null
-    dataPoints?: Array<{
-      __typename: 'Stat'
-      id: string
-      dataType?: string | null
-    } | null> | null
     sponsorIcon?: string | null
     createdAt?: string | null
     updatedAt?: string | null
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
   } | null
 }
 
@@ -492,19 +705,13 @@ export type OnDeleteFeaturedExperimentSubscription = {
     secondaryImage?: string | null
     status?: string | null
     description?: string | null
-    envData?: string | null
-    nutrientData?: string | null
     duration?: string | null
-    start?: number | null
-    end?: number | null
     sponsor?: string | null
-    dataPoints?: Array<{
-      __typename: 'Stat'
-      id: string
-      dataType?: string | null
-    } | null> | null
     sponsorIcon?: string | null
     createdAt?: string | null
     updatedAt?: string | null
+    _version: number
+    _deleted?: boolean | null
+    _lastChangedAt: number
   } | null
 }

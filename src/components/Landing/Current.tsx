@@ -98,8 +98,8 @@ function Plan({
           featured ? 'text-white' : 'text-slate-200',
         )}
       >
-        {features.map((feature) => (
-          <li key={feature} className="flex">
+        {features.map((feature, index) => (
+          <li key={`${feature}#${index}`} className="flex">
             <CheckIcon className={featured ? 'text-white' : 'text-slate-400'} />
             <span className="ml-4">{feature}</span>
           </li>
@@ -140,7 +140,7 @@ export function Current() {
         </div>
         <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
           <Plan
-            key={'yaupon'}
+            key={'yaupon_1'}
             name="Yaupon Holly Trials"
             image={yauponImage1}
             description="Evaluating Yaupon Holly (Ilex vomitoria) as the Ideal Caffeine-Producing Plant for Space Cultivation Under Low-Light Conditions"
@@ -154,7 +154,7 @@ export function Current() {
             ]}
           />
           <Plan
-            key={'loblolly'}
+            key={'loblolly_1'}
             featured
             name="Loblolly Pine Red Light Trials"
             image={loblollyImage1}

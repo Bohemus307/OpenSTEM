@@ -31,11 +31,7 @@ export declare type FeaturedExperimentCreateFormInputValues = {
   secondaryImage?: string
   status?: string
   description?: string
-  envData?: string
-  nutrientData?: string
   duration?: string
-  start?: number
-  end?: number
   sponsor?: string
   sponsorIcon?: string
   createdAt?: string
@@ -48,11 +44,7 @@ export declare type FeaturedExperimentCreateFormValidationValues = {
   secondaryImage?: ValidationFunction<string>
   status?: ValidationFunction<string>
   description?: ValidationFunction<string>
-  envData?: ValidationFunction<string>
-  nutrientData?: ValidationFunction<string>
   duration?: ValidationFunction<string>
-  start?: ValidationFunction<number>
-  end?: ValidationFunction<number>
   sponsor?: ValidationFunction<string>
   sponsorIcon?: ValidationFunction<string>
   createdAt?: ValidationFunction<string>
@@ -68,11 +60,7 @@ export declare type FeaturedExperimentCreateFormOverridesProps = {
   secondaryImage?: PrimitiveOverrideProps<TextFieldProps>
   status?: PrimitiveOverrideProps<TextFieldProps>
   description?: PrimitiveOverrideProps<TextFieldProps>
-  envData?: PrimitiveOverrideProps<TextFieldProps>
-  nutrientData?: PrimitiveOverrideProps<TextFieldProps>
   duration?: PrimitiveOverrideProps<TextFieldProps>
-  start?: PrimitiveOverrideProps<TextFieldProps>
-  end?: PrimitiveOverrideProps<TextFieldProps>
   sponsor?: PrimitiveOverrideProps<TextFieldProps>
   sponsorIcon?: PrimitiveOverrideProps<TextFieldProps>
   createdAt?: PrimitiveOverrideProps<TextFieldProps>

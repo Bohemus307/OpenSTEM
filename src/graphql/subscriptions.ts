@@ -8,6 +8,63 @@ type GeneratedSubscription<InputType, OutputType> = string & {
   __generatedSubscriptionOutput: OutputType
 }
 
+export const onCreateUser =
+  /* GraphQL */ `subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
+  onCreateUser(filter: $filter) {
+    id
+    name
+    email
+    imageUrl
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+    APITypes.OnCreateUserSubscriptionVariables,
+    APITypes.OnCreateUserSubscription
+  >
+export const onUpdateUser =
+  /* GraphQL */ `subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
+  onUpdateUser(filter: $filter) {
+    id
+    name
+    email
+    imageUrl
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+    APITypes.OnUpdateUserSubscriptionVariables,
+    APITypes.OnUpdateUserSubscription
+  >
+export const onDeleteUser =
+  /* GraphQL */ `subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
+  onDeleteUser(filter: $filter) {
+    id
+    name
+    email
+    imageUrl
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+    APITypes.OnDeleteUserSubscriptionVariables,
+    APITypes.OnDeleteUserSubscription
+  >
 export const onCreateFeaturedExperiment =
   /* GraphQL */ `subscription OnCreateFeaturedExperiment(
   $filter: ModelSubscriptionFeaturedExperimentFilterInput
@@ -20,20 +77,19 @@ export const onCreateFeaturedExperiment =
     secondaryImage
     status
     description
-    envData
-    nutrientData
     duration
-    start
-    end
     sponsor
+    sponsorIcon
+    createdAt
+    updatedAt
     dataPoints {
       id
       dataType
       __typename
     }
-    sponsorIcon
-    createdAt
-    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
     __typename
   }
 }
@@ -53,20 +109,19 @@ export const onUpdateFeaturedExperiment =
     secondaryImage
     status
     description
-    envData
-    nutrientData
     duration
-    start
-    end
     sponsor
+    sponsorIcon
+    createdAt
+    updatedAt
     dataPoints {
       id
       dataType
       __typename
     }
-    sponsorIcon
-    createdAt
-    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
     __typename
   }
 }
@@ -86,20 +141,19 @@ export const onDeleteFeaturedExperiment =
     secondaryImage
     status
     description
-    envData
-    nutrientData
     duration
-    start
-    end
     sponsor
+    sponsorIcon
+    createdAt
+    updatedAt
     dataPoints {
       id
       dataType
       __typename
     }
-    sponsorIcon
-    createdAt
-    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
     __typename
   }
 }

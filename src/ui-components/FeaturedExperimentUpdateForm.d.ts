@@ -6,7 +6,7 @@
 
 import * as React from 'react'
 import { GridProps, TextFieldProps } from '@aws-amplify/ui-react'
-import { FeaturedExperiment } from '../API.ts'
+import { FeaturedExperiment } from '../models'
 export declare type EscapeHatchProps = {
   [elementHierarchy: string]: Record<string, unknown>
 } | null
@@ -32,11 +32,7 @@ export declare type FeaturedExperimentUpdateFormInputValues = {
   secondaryImage?: string
   status?: string
   description?: string
-  envData?: string
-  nutrientData?: string
   duration?: string
-  start?: number
-  end?: number
   sponsor?: string
   sponsorIcon?: string
   createdAt?: string
@@ -49,11 +45,7 @@ export declare type FeaturedExperimentUpdateFormValidationValues = {
   secondaryImage?: ValidationFunction<string>
   status?: ValidationFunction<string>
   description?: ValidationFunction<string>
-  envData?: ValidationFunction<string>
-  nutrientData?: ValidationFunction<string>
   duration?: ValidationFunction<string>
-  start?: ValidationFunction<number>
-  end?: ValidationFunction<number>
   sponsor?: ValidationFunction<string>
   sponsorIcon?: ValidationFunction<string>
   createdAt?: ValidationFunction<string>
@@ -69,11 +61,7 @@ export declare type FeaturedExperimentUpdateFormOverridesProps = {
   secondaryImage?: PrimitiveOverrideProps<TextFieldProps>
   status?: PrimitiveOverrideProps<TextFieldProps>
   description?: PrimitiveOverrideProps<TextFieldProps>
-  envData?: PrimitiveOverrideProps<TextFieldProps>
-  nutrientData?: PrimitiveOverrideProps<TextFieldProps>
   duration?: PrimitiveOverrideProps<TextFieldProps>
-  start?: PrimitiveOverrideProps<TextFieldProps>
-  end?: PrimitiveOverrideProps<TextFieldProps>
   sponsor?: PrimitiveOverrideProps<TextFieldProps>
   sponsorIcon?: PrimitiveOverrideProps<TextFieldProps>
   createdAt?: PrimitiveOverrideProps<TextFieldProps>

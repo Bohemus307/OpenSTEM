@@ -1,7 +1,7 @@
-import { useUser } from '@auth0/nextjs-auth0/client'
+import { useAuthenticator } from '@aws-amplify/ui-react'
 
 const WelcomePanel: React.FC = () => {
-  const { user, isLoading } = useUser()
+  const { user } = useAuthenticator()
   return (
     <section className="w-full" aria-labelledby="profile-overview-title">
       <div className="overflow-hidden rounded-lg bg-gray-50 shadow">
@@ -18,9 +18,9 @@ const WelcomePanel: React.FC = () => {
                 <p className="text-sm font-medium text-gray-600">
                   Welcome back,
                 </p>
-                {!isLoading && (
+                {user && (
                   <p className="text-xl font-bold text-gray-900 sm:text-2xl">
-                    {user?.name || 'OpenSTEM Hero'}
+                    {user.username || 'OpenSTEMster'}
                   </p>
                 )}
               </div>

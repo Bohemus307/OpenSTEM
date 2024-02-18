@@ -8,6 +8,9 @@ import { Logo } from '@components/Logo'
 import React from 'react'
 import { classNames } from '@lib/utils/globals'
 import { ReactQueryClientProvider } from './queryProvider'
+import { signOut } from 'aws-amplify/auth'
+import { useRouter } from 'next/navigation'
+import { Loader } from '@aws-amplify/ui-react'
 
 const user = {
   name: 'Chelsea Hagon',
@@ -20,13 +23,11 @@ const navigation = [
   { name: 'Featured', href: '#', current: true },
   { name: 'Your Experiments', href: '#', current: false },
   { name: 'Explore', href: '#', current: false },
-  // { name: 'Company Directory', href: '#', current: false },
-  // { name: 'Openings', href: '#', current: false },
 ]
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: 'api/auth/logout' },
+  { name: 'Your Profile', href: '#', handler: 'router' },
+  { name: 'Settings', href: '#', handler: 'router' },
+  { name: 'Sign out', href: 'logout', handler: 'logout' },
 ]
 
 export default function DashboardLayout({
@@ -34,6 +35,20 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode
 }) {
+  const router = useRouter()
+  const [loading, setLoading] = useState<boolean>(false)
+
+  async function handleSignOut() {
+    try {
+      setLoading(true)
+      await signOut({ global: true })
+
+      router.push('/')
+    } catch (error) {
+      console.log('error signing out: ', error)
+    }
+  }
+
   return (
     <ReactQueryClientProvider>
       <section>
@@ -89,15 +104,29 @@ export default function DashboardLayout({
                           {userNavigation.map((item) => (
                             <Menu.Item key={item.name}>
                               {({ active }) => (
-                                <a
-                                  href={item.href}
-                                  className={classNames(
-                                    active ? 'bg-gray-100' : '',
-                                    'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100',
+                                <>
+                                  {item.handler === 'logout' ? (
+                                    <button
+                                      onClick={() => handleSignOut()}
+                                      className={classNames(
+                                        active ? 'bg-gray-100' : '',
+                                        'block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100',
+                                      )}
+                                    >
+                                      {item.name}
+                                    </button>
+                                  ) : (
+                                    <a
+                                      href={item.href}
+                                      className={classNames(
+                                        active ? 'bg-gray-100' : '',
+                                        'block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100',
+                                      )}
+                                    >
+                                      {item.name}
+                                    </a>
                                   )}
-                                >
-                                  {item.name}
-                                </a>
+                                </>
                               )}
                             </Menu.Item>
                           ))}
@@ -260,7 +289,7 @@ export default function DashboardLayout({
             </>
           )}
         </Popover>
-        {children}
+        {!loading ? children : <div className="container h-full"></div>}
       </section>
     </ReactQueryClientProvider>
   )

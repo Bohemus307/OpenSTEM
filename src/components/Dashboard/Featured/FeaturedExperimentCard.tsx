@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { FeaturedExperiment } from 'src/interfaces/featuredExperiment'
 import Link from 'next/link'
 import ExperimentData from './ExperimentData'
+import { GiftIcon } from '@heroicons/react/24/solid'
 
 interface FeaturedExperimentCardProps {
   experiment: FeaturedExperiment
@@ -30,7 +31,7 @@ const FeaturedExperimentCard: React.FC<FeaturedExperimentCardProps> = ({
             </h2>
             <div className="text-md w-full pt-4 font-medium">
               <p className="w-10/12">{experiment.description}</p>
-              <ExperimentData experiment={experiment} />
+              {/* <ExperimentData experiment={experiment} /> */}
             </div>
             {experiment.sponsor && experiment.sponsorIcon ? (
               <div className="flex items-end justify-end pt-12">
@@ -49,6 +50,8 @@ const FeaturedExperimentCard: React.FC<FeaturedExperimentCardProps> = ({
                 <span className="flex items-center gap-4 font-medium">
                   No Current Sponsor
                 </span>
+                <GiftIcon className="h-5 w-5 text-primary-600" />
+                <span>Sponsor this Experiement by clicking here!</span>
               </div>
             )}
           </div>

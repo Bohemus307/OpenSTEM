@@ -9,7 +9,7 @@ import { Button } from '@components/Button'
 import { Container } from '@components/Container'
 import { Logo } from '@components/Logo'
 import { NavLink } from '@components/NavLink'
-import { useUser } from '@auth0/nextjs-auth0/client'
+import { useAuthenticator } from '@aws-amplify/ui-react'
 
 function MobileNavLink({
   href,
@@ -99,7 +99,7 @@ function MobileNavigation() {
 }
 
 export function Header() {
-  const { user, isLoading } = useUser()
+  const { user } = useAuthenticator()
   return (
     <header className="py-10">
       <Container>
@@ -118,7 +118,7 @@ export function Header() {
             </div>
           </div>
           <div className="flex w-1/3 items-center justify-end gap-x-5 md:gap-x-8">
-            {!isLoading && user ? (
+            {user ? (
               <Button href="/dashboard" color="primary">
                 <span>
                   Check Out The{' '}

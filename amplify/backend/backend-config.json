@@ -1,6 +1,6 @@
 {
   "api": {
-    "openstemapi": {
+    "openstem": {
       "dependsOn": [],
       "output": {
         "authConfig": {
@@ -20,6 +20,26 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync"
+    }
+  },
+  "auth": {
+    "openstem6b28f8986b28f898": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": ["SMS"],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": ["EMAIL"],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": ["EMAIL"]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
     }
   }
 }

@@ -7,11 +7,9 @@
 /* eslint-disable */
 import * as React from 'react'
 import { Button, Flex, Grid, TextField } from '@aws-amplify/ui-react'
+import { FeaturedExperiment } from '../models'
 import { fetchByPath, getOverrideProps, validateField } from './utils'
-import { generateClient } from 'aws-amplify/api'
-import { getFeaturedExperiment } from '../graphql/queries'
-import { updateFeaturedExperiment } from '../graphql/mutations'
-const client = generateClient()
+import { DataStore } from 'aws-amplify/datastore'
 export default function FeaturedExperimentUpdateForm(props) {
   const {
     id: idProp,
@@ -31,11 +29,7 @@ export default function FeaturedExperimentUpdateForm(props) {
     secondaryImage: '',
     status: '',
     description: '',
-    envData: '',
-    nutrientData: '',
     duration: '',
-    start: '',
-    end: '',
     sponsor: '',
     sponsorIcon: '',
     createdAt: '',
@@ -55,13 +49,7 @@ export default function FeaturedExperimentUpdateForm(props) {
   const [description, setDescription] = React.useState(
     initialValues.description,
   )
-  const [envData, setEnvData] = React.useState(initialValues.envData)
-  const [nutrientData, setNutrientData] = React.useState(
-    initialValues.nutrientData,
-  )
   const [duration, setDuration] = React.useState(initialValues.duration)
-  const [start, setStart] = React.useState(initialValues.start)
-  const [end, setEnd] = React.useState(initialValues.end)
   const [sponsor, setSponsor] = React.useState(initialValues.sponsor)
   const [sponsorIcon, setSponsorIcon] = React.useState(
     initialValues.sponsorIcon,
@@ -79,11 +67,7 @@ export default function FeaturedExperimentUpdateForm(props) {
     setSecondaryImage(cleanValues.secondaryImage)
     setStatus(cleanValues.status)
     setDescription(cleanValues.description)
-    setEnvData(cleanValues.envData)
-    setNutrientData(cleanValues.nutrientData)
     setDuration(cleanValues.duration)
-    setStart(cleanValues.start)
-    setEnd(cleanValues.end)
     setSponsor(cleanValues.sponsor)
     setSponsorIcon(cleanValues.sponsorIcon)
     setCreatedAt(cleanValues.createdAt)
@@ -95,12 +79,7 @@ export default function FeaturedExperimentUpdateForm(props) {
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
-        ? (
-            await client.graphql({
-              query: getFeaturedExperiment.replaceAll('__typename', ''),
-              variables: { id: idProp },
-            })
-          )?.data?.getFeaturedExperiment
+        ? await DataStore.query(FeaturedExperiment, idProp)
         : featuredExperimentModelProp
       setFeaturedExperimentRecord(record)
     }
@@ -114,11 +93,7 @@ export default function FeaturedExperimentUpdateForm(props) {
     secondaryImage: [],
     status: [],
     description: [],
-    envData: [],
-    nutrientData: [],
     duration: [],
-    start: [],
-    end: [],
     sponsor: [],
     sponsorIcon: [],
     createdAt: [],
@@ -150,21 +125,17 @@ export default function FeaturedExperimentUpdateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault()
         let modelFields = {
-          experiment_id: experiment_id ?? null,
-          name: name ?? null,
-          primaryImage: primaryImage ?? null,
-          secondaryImage: secondaryImage ?? null,
-          status: status ?? null,
-          description: description ?? null,
-          envData: envData ?? null,
-          nutrientData: nutrientData ?? null,
-          duration: duration ?? null,
-          start: start ?? null,
-          end: end ?? null,
-          sponsor: sponsor ?? null,
-          sponsorIcon: sponsorIcon ?? null,
-          createdAt: createdAt ?? null,
-          updatedAt: updatedAt ?? null,
+          experiment_id,
+          name,
+          primaryImage,
+          secondaryImage,
+          status,
+          description,
+          duration,
+          sponsor,
+          sponsorIcon,
+          createdAt,
+          updatedAt,
         }
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -192,22 +163,17 @@ export default function FeaturedExperimentUpdateForm(props) {
               modelFields[key] = null
             }
           })
-          await client.graphql({
-            query: updateFeaturedExperiment.replaceAll('__typename', ''),
-            variables: {
-              input: {
-                id: featuredExperimentRecord.id,
-                ...modelFields,
-              },
-            },
-          })
+          await DataStore.save(
+            FeaturedExperiment.copyOf(featuredExperimentRecord, (updated) => {
+              Object.assign(updated, modelFields)
+            }),
+          )
           if (onSuccess) {
             onSuccess(modelFields)
           }
         } catch (err) {
           if (onError) {
-            const messages = err.errors.map((e) => e.message).join('\n')
-            onError(modelFields, messages)
+            onError(modelFields, err.message)
           }
         }
       }}
@@ -229,11 +195,7 @@ export default function FeaturedExperimentUpdateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -267,11 +229,7 @@ export default function FeaturedExperimentUpdateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -305,11 +263,7 @@ export default function FeaturedExperimentUpdateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -343,11 +297,7 @@ export default function FeaturedExperimentUpdateForm(props) {
               secondaryImage: value,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -381,11 +331,7 @@ export default function FeaturedExperimentUpdateForm(props) {
               secondaryImage,
               status: value,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -419,11 +365,7 @@ export default function FeaturedExperimentUpdateForm(props) {
               secondaryImage,
               status,
               description: value,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -443,82 +385,6 @@ export default function FeaturedExperimentUpdateForm(props) {
         {...getOverrideProps(overrides, 'description')}
       ></TextField>
       <TextField
-        label="Env data"
-        isRequired={false}
-        isReadOnly={false}
-        value={envData}
-        onChange={(e) => {
-          let { value } = e.target
-          if (onChange) {
-            const modelFields = {
-              experiment_id,
-              name,
-              primaryImage,
-              secondaryImage,
-              status,
-              description,
-              envData: value,
-              nutrientData,
-              duration,
-              start,
-              end,
-              sponsor,
-              sponsorIcon,
-              createdAt,
-              updatedAt,
-            }
-            const result = onChange(modelFields)
-            value = result?.envData ?? value
-          }
-          if (errors.envData?.hasError) {
-            runValidationTasks('envData', value)
-          }
-          setEnvData(value)
-        }}
-        onBlur={() => runValidationTasks('envData', envData)}
-        errorMessage={errors.envData?.errorMessage}
-        hasError={errors.envData?.hasError}
-        {...getOverrideProps(overrides, 'envData')}
-      ></TextField>
-      <TextField
-        label="Nutrient data"
-        isRequired={false}
-        isReadOnly={false}
-        value={nutrientData}
-        onChange={(e) => {
-          let { value } = e.target
-          if (onChange) {
-            const modelFields = {
-              experiment_id,
-              name,
-              primaryImage,
-              secondaryImage,
-              status,
-              description,
-              envData,
-              nutrientData: value,
-              duration,
-              start,
-              end,
-              sponsor,
-              sponsorIcon,
-              createdAt,
-              updatedAt,
-            }
-            const result = onChange(modelFields)
-            value = result?.nutrientData ?? value
-          }
-          if (errors.nutrientData?.hasError) {
-            runValidationTasks('nutrientData', value)
-          }
-          setNutrientData(value)
-        }}
-        onBlur={() => runValidationTasks('nutrientData', nutrientData)}
-        errorMessage={errors.nutrientData?.errorMessage}
-        hasError={errors.nutrientData?.hasError}
-        {...getOverrideProps(overrides, 'nutrientData')}
-      ></TextField>
-      <TextField
         label="Duration"
         isRequired={false}
         isReadOnly={false}
@@ -533,11 +399,7 @@ export default function FeaturedExperimentUpdateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration: value,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -557,90 +419,6 @@ export default function FeaturedExperimentUpdateForm(props) {
         {...getOverrideProps(overrides, 'duration')}
       ></TextField>
       <TextField
-        label="Start"
-        isRequired={false}
-        isReadOnly={false}
-        type="number"
-        step="any"
-        value={start}
-        onChange={(e) => {
-          let value = isNaN(parseInt(e.target.value))
-            ? e.target.value
-            : parseInt(e.target.value)
-          if (onChange) {
-            const modelFields = {
-              experiment_id,
-              name,
-              primaryImage,
-              secondaryImage,
-              status,
-              description,
-              envData,
-              nutrientData,
-              duration,
-              start: value,
-              end,
-              sponsor,
-              sponsorIcon,
-              createdAt,
-              updatedAt,
-            }
-            const result = onChange(modelFields)
-            value = result?.start ?? value
-          }
-          if (errors.start?.hasError) {
-            runValidationTasks('start', value)
-          }
-          setStart(value)
-        }}
-        onBlur={() => runValidationTasks('start', start)}
-        errorMessage={errors.start?.errorMessage}
-        hasError={errors.start?.hasError}
-        {...getOverrideProps(overrides, 'start')}
-      ></TextField>
-      <TextField
-        label="End"
-        isRequired={false}
-        isReadOnly={false}
-        type="number"
-        step="any"
-        value={end}
-        onChange={(e) => {
-          let value = isNaN(parseInt(e.target.value))
-            ? e.target.value
-            : parseInt(e.target.value)
-          if (onChange) {
-            const modelFields = {
-              experiment_id,
-              name,
-              primaryImage,
-              secondaryImage,
-              status,
-              description,
-              envData,
-              nutrientData,
-              duration,
-              start,
-              end: value,
-              sponsor,
-              sponsorIcon,
-              createdAt,
-              updatedAt,
-            }
-            const result = onChange(modelFields)
-            value = result?.end ?? value
-          }
-          if (errors.end?.hasError) {
-            runValidationTasks('end', value)
-          }
-          setEnd(value)
-        }}
-        onBlur={() => runValidationTasks('end', end)}
-        errorMessage={errors.end?.errorMessage}
-        hasError={errors.end?.hasError}
-        {...getOverrideProps(overrides, 'end')}
-      ></TextField>
-      <TextField
         label="Sponsor"
         isRequired={false}
         isReadOnly={false}
@@ -655,11 +433,7 @@ export default function FeaturedExperimentUpdateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor: value,
               sponsorIcon,
               createdAt,
@@ -693,11 +467,7 @@ export default function FeaturedExperimentUpdateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon: value,
               createdAt,
@@ -731,11 +501,7 @@ export default function FeaturedExperimentUpdateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt: value,
@@ -769,11 +535,7 @@ export default function FeaturedExperimentUpdateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,

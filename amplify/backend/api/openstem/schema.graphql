@@ -1,3 +1,10 @@
+type User @model @auth(rules: [{ allow: public }]) {
+  id: ID!
+  name: String
+  email: String!
+  imageUrl: String
+}
+
 type FeaturedExperiment @model @auth(rules: [{ allow: public }]) {
   id: ID!
   experiment_id: String
@@ -6,13 +13,8 @@ type FeaturedExperiment @model @auth(rules: [{ allow: public }]) {
   secondaryImage: String
   status: String
   description: String
-  envData: String
-  nutrientData: String
   duration: String
-  start: Int
-  end: Int
   sponsor: String
-  dataPoints: [Stat]
   sponsorIcon: String
   createdAt: String
   updatedAt: String

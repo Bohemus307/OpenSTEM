@@ -7,10 +7,9 @@
 /* eslint-disable */
 import * as React from 'react'
 import { Button, Flex, Grid, TextField } from '@aws-amplify/ui-react'
+import { FeaturedExperiment } from '../models'
 import { fetchByPath, getOverrideProps, validateField } from './utils'
-import { generateClient } from 'aws-amplify/api'
-import { createFeaturedExperiment } from '../graphql/mutations'
-const client = generateClient()
+import { DataStore } from 'aws-amplify/datastore'
 export default function FeaturedExperimentCreateForm(props) {
   const {
     clearOnSuccess = true,
@@ -29,11 +28,7 @@ export default function FeaturedExperimentCreateForm(props) {
     secondaryImage: '',
     status: '',
     description: '',
-    envData: '',
-    nutrientData: '',
     duration: '',
-    start: '',
-    end: '',
     sponsor: '',
     sponsorIcon: '',
     createdAt: '',
@@ -53,13 +48,7 @@ export default function FeaturedExperimentCreateForm(props) {
   const [description, setDescription] = React.useState(
     initialValues.description,
   )
-  const [envData, setEnvData] = React.useState(initialValues.envData)
-  const [nutrientData, setNutrientData] = React.useState(
-    initialValues.nutrientData,
-  )
   const [duration, setDuration] = React.useState(initialValues.duration)
-  const [start, setStart] = React.useState(initialValues.start)
-  const [end, setEnd] = React.useState(initialValues.end)
   const [sponsor, setSponsor] = React.useState(initialValues.sponsor)
   const [sponsorIcon, setSponsorIcon] = React.useState(
     initialValues.sponsorIcon,
@@ -74,11 +63,7 @@ export default function FeaturedExperimentCreateForm(props) {
     setSecondaryImage(initialValues.secondaryImage)
     setStatus(initialValues.status)
     setDescription(initialValues.description)
-    setEnvData(initialValues.envData)
-    setNutrientData(initialValues.nutrientData)
     setDuration(initialValues.duration)
-    setStart(initialValues.start)
-    setEnd(initialValues.end)
     setSponsor(initialValues.sponsor)
     setSponsorIcon(initialValues.sponsorIcon)
     setCreatedAt(initialValues.createdAt)
@@ -92,11 +77,7 @@ export default function FeaturedExperimentCreateForm(props) {
     secondaryImage: [],
     status: [],
     description: [],
-    envData: [],
-    nutrientData: [],
     duration: [],
-    start: [],
-    end: [],
     sponsor: [],
     sponsorIcon: [],
     createdAt: [],
@@ -134,11 +115,7 @@ export default function FeaturedExperimentCreateForm(props) {
           secondaryImage,
           status,
           description,
-          envData,
-          nutrientData,
           duration,
-          start,
-          end,
           sponsor,
           sponsorIcon,
           createdAt,
@@ -170,14 +147,7 @@ export default function FeaturedExperimentCreateForm(props) {
               modelFields[key] = null
             }
           })
-          await client.graphql({
-            query: createFeaturedExperiment.replaceAll('__typename', ''),
-            variables: {
-              input: {
-                ...modelFields,
-              },
-            },
-          })
+          await DataStore.save(new FeaturedExperiment(modelFields))
           if (onSuccess) {
             onSuccess(modelFields)
           }
@@ -186,8 +156,7 @@ export default function FeaturedExperimentCreateForm(props) {
           }
         } catch (err) {
           if (onError) {
-            const messages = err.errors.map((e) => e.message).join('\n')
-            onError(modelFields, messages)
+            onError(modelFields, err.message)
           }
         }
       }}
@@ -209,11 +178,7 @@ export default function FeaturedExperimentCreateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -247,11 +212,7 @@ export default function FeaturedExperimentCreateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -285,11 +246,7 @@ export default function FeaturedExperimentCreateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -323,11 +280,7 @@ export default function FeaturedExperimentCreateForm(props) {
               secondaryImage: value,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -361,11 +314,7 @@ export default function FeaturedExperimentCreateForm(props) {
               secondaryImage,
               status: value,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -399,11 +348,7 @@ export default function FeaturedExperimentCreateForm(props) {
               secondaryImage,
               status,
               description: value,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -423,82 +368,6 @@ export default function FeaturedExperimentCreateForm(props) {
         {...getOverrideProps(overrides, 'description')}
       ></TextField>
       <TextField
-        label="Env data"
-        isRequired={false}
-        isReadOnly={false}
-        value={envData}
-        onChange={(e) => {
-          let { value } = e.target
-          if (onChange) {
-            const modelFields = {
-              experiment_id,
-              name,
-              primaryImage,
-              secondaryImage,
-              status,
-              description,
-              envData: value,
-              nutrientData,
-              duration,
-              start,
-              end,
-              sponsor,
-              sponsorIcon,
-              createdAt,
-              updatedAt,
-            }
-            const result = onChange(modelFields)
-            value = result?.envData ?? value
-          }
-          if (errors.envData?.hasError) {
-            runValidationTasks('envData', value)
-          }
-          setEnvData(value)
-        }}
-        onBlur={() => runValidationTasks('envData', envData)}
-        errorMessage={errors.envData?.errorMessage}
-        hasError={errors.envData?.hasError}
-        {...getOverrideProps(overrides, 'envData')}
-      ></TextField>
-      <TextField
-        label="Nutrient data"
-        isRequired={false}
-        isReadOnly={false}
-        value={nutrientData}
-        onChange={(e) => {
-          let { value } = e.target
-          if (onChange) {
-            const modelFields = {
-              experiment_id,
-              name,
-              primaryImage,
-              secondaryImage,
-              status,
-              description,
-              envData,
-              nutrientData: value,
-              duration,
-              start,
-              end,
-              sponsor,
-              sponsorIcon,
-              createdAt,
-              updatedAt,
-            }
-            const result = onChange(modelFields)
-            value = result?.nutrientData ?? value
-          }
-          if (errors.nutrientData?.hasError) {
-            runValidationTasks('nutrientData', value)
-          }
-          setNutrientData(value)
-        }}
-        onBlur={() => runValidationTasks('nutrientData', nutrientData)}
-        errorMessage={errors.nutrientData?.errorMessage}
-        hasError={errors.nutrientData?.hasError}
-        {...getOverrideProps(overrides, 'nutrientData')}
-      ></TextField>
-      <TextField
         label="Duration"
         isRequired={false}
         isReadOnly={false}
@@ -513,11 +382,7 @@ export default function FeaturedExperimentCreateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration: value,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,
@@ -537,90 +402,6 @@ export default function FeaturedExperimentCreateForm(props) {
         {...getOverrideProps(overrides, 'duration')}
       ></TextField>
       <TextField
-        label="Start"
-        isRequired={false}
-        isReadOnly={false}
-        type="number"
-        step="any"
-        value={start}
-        onChange={(e) => {
-          let value = isNaN(parseInt(e.target.value))
-            ? e.target.value
-            : parseInt(e.target.value)
-          if (onChange) {
-            const modelFields = {
-              experiment_id,
-              name,
-              primaryImage,
-              secondaryImage,
-              status,
-              description,
-              envData,
-              nutrientData,
-              duration,
-              start: value,
-              end,
-              sponsor,
-              sponsorIcon,
-              createdAt,
-              updatedAt,
-            }
-            const result = onChange(modelFields)
-            value = result?.start ?? value
-          }
-          if (errors.start?.hasError) {
-            runValidationTasks('start', value)
-          }
-          setStart(value)
-        }}
-        onBlur={() => runValidationTasks('start', start)}
-        errorMessage={errors.start?.errorMessage}
-        hasError={errors.start?.hasError}
-        {...getOverrideProps(overrides, 'start')}
-      ></TextField>
-      <TextField
-        label="End"
-        isRequired={false}
-        isReadOnly={false}
-        type="number"
-        step="any"
-        value={end}
-        onChange={(e) => {
-          let value = isNaN(parseInt(e.target.value))
-            ? e.target.value
-            : parseInt(e.target.value)
-          if (onChange) {
-            const modelFields = {
-              experiment_id,
-              name,
-              primaryImage,
-              secondaryImage,
-              status,
-              description,
-              envData,
-              nutrientData,
-              duration,
-              start,
-              end: value,
-              sponsor,
-              sponsorIcon,
-              createdAt,
-              updatedAt,
-            }
-            const result = onChange(modelFields)
-            value = result?.end ?? value
-          }
-          if (errors.end?.hasError) {
-            runValidationTasks('end', value)
-          }
-          setEnd(value)
-        }}
-        onBlur={() => runValidationTasks('end', end)}
-        errorMessage={errors.end?.errorMessage}
-        hasError={errors.end?.hasError}
-        {...getOverrideProps(overrides, 'end')}
-      ></TextField>
-      <TextField
         label="Sponsor"
         isRequired={false}
         isReadOnly={false}
@@ -635,11 +416,7 @@ export default function FeaturedExperimentCreateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor: value,
               sponsorIcon,
               createdAt,
@@ -673,11 +450,7 @@ export default function FeaturedExperimentCreateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon: value,
               createdAt,
@@ -711,11 +484,7 @@ export default function FeaturedExperimentCreateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt: value,
@@ -749,11 +518,7 @@ export default function FeaturedExperimentCreateForm(props) {
               secondaryImage,
               status,
               description,
-              envData,
-              nutrientData,
               duration,
-              start,
-              end,
               sponsor,
               sponsorIcon,
               createdAt,

@@ -8,6 +8,69 @@ type GeneratedMutation<InputType, OutputType> = string & {
   __generatedMutationOutput: OutputType
 }
 
+export const createUser = /* GraphQL */ `mutation CreateUser(
+  $input: CreateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  createUser(input: $input, condition: $condition) {
+    id
+    name
+    email
+    imageUrl
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateUserMutationVariables,
+  APITypes.CreateUserMutation
+>
+export const updateUser = /* GraphQL */ `mutation UpdateUser(
+  $input: UpdateUserInput!
+  $condition: ModelUserConditionInput
+) {
+  updateUser(input: $input, condition: $condition) {
+    id
+    name
+    email
+    imageUrl
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateUserMutationVariables,
+  APITypes.UpdateUserMutation
+>
+export const deleteUser = /* GraphQL */ `mutation DeleteUser(
+  $input: DeleteUserInput!
+  $condition: ModelUserConditionInput
+) {
+  deleteUser(input: $input, condition: $condition) {
+    id
+    name
+    email
+    imageUrl
+    createdAt
+    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteUserMutationVariables,
+  APITypes.DeleteUserMutation
+>
 export const createFeaturedExperiment =
   /* GraphQL */ `mutation CreateFeaturedExperiment(
   $input: CreateFeaturedExperimentInput!
@@ -21,20 +84,19 @@ export const createFeaturedExperiment =
     secondaryImage
     status
     description
-    envData
-    nutrientData
     duration
-    start
-    end
     sponsor
+    sponsorIcon
+    createdAt
+    updatedAt
     dataPoints {
       id
       dataType
       __typename
     }
-    sponsorIcon
-    createdAt
-    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
     __typename
   }
 }
@@ -55,20 +117,19 @@ export const updateFeaturedExperiment =
     secondaryImage
     status
     description
-    envData
-    nutrientData
     duration
-    start
-    end
     sponsor
+    sponsorIcon
+    createdAt
+    updatedAt
     dataPoints {
       id
       dataType
       __typename
     }
-    sponsorIcon
-    createdAt
-    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
     __typename
   }
 }
@@ -89,20 +150,19 @@ export const deleteFeaturedExperiment =
     secondaryImage
     status
     description
-    envData
-    nutrientData
     duration
-    start
-    end
     sponsor
+    sponsorIcon
+    createdAt
+    updatedAt
     dataPoints {
       id
       dataType
       __typename
     }
-    sponsorIcon
-    createdAt
-    updatedAt
+    _version
+    _deleted
+    _lastChangedAt
     __typename
   }
 }

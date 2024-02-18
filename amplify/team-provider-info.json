@@ -1,19 +1,22 @@
 {
-  "dev": {
+  "develop": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-openstemapi-dev-160422-authRole",
-      "UnauthRoleArn": "arn:aws:iam::992382565876:role/amplify-openstemapi-dev-160422-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::992382565876:role/amplify-openstemapi-dev-160422-authRole",
+      "AuthRoleName": "amplify-openstem-develop-71622-authRole",
+      "UnauthRoleArn": "arn:aws:iam::992382565876:role/amplify-openstem-develop-71622-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::992382565876:role/amplify-openstem-develop-71622-authRole",
       "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-openstemapi-dev-160422-deployment",
-      "UnauthRoleName": "amplify-openstemapi-dev-160422-unauthRole",
-      "StackName": "amplify-openstemapi-dev-160422",
-      "StackId": "arn:aws:cloudformation:us-east-1:992382565876:stack/amplify-openstemapi-dev-160422/3f8978e0-bc9f-11ee-a1da-0e9ced82b18f",
-      "AmplifyAppId": "d27ucdmay7hu7d"
+      "DeploymentBucketName": "amplify-openstem-develop-71622-deployment",
+      "UnauthRoleName": "amplify-openstem-develop-71622-unauthRole",
+      "StackName": "amplify-openstem-develop-71622",
+      "StackId": "arn:aws:cloudformation:us-east-1:992382565876:stack/amplify-openstem-develop-71622/33268490-ccc5-11ee-bcbb-0aff72070803",
+      "AmplifyAppId": "d2dayql0fuj993"
     },
     "categories": {
       "api": {
-        "openstemapi": {}
+        "openstem": {}
+      },
+      "auth": {
+        "openstem6b28f8986b28f898": {}
       }
     }
   }

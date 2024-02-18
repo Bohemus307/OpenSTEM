@@ -1,4 +1,3 @@
-import { UserProvider } from '@auth0/nextjs-auth0/client'
 import { Inter, Lexend } from 'next/font/google'
 import clsx from 'clsx'
 
@@ -39,9 +38,7 @@ export default function RootLayout({
         lexend.variable,
       )}
     >
-      <UserProvider>
-        <body className="flex h-full flex-col">{children}</body>
-      </UserProvider>
+      <body className="flex h-full flex-col">{children}</body>
     </html>
   )
 }

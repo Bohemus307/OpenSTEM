@@ -1,13 +1,6 @@
 import React from 'react'
 import { FeaturedExperiment } from 'src/interfaces/featuredExperiment'
 import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/20/solid'
-import {
-  ClockIcon,
-  CloudIcon,
-  CursorArrowRaysIcon,
-  EnvelopeOpenIcon,
-  SunIcon,
-} from '@heroicons/react/24/outline'
 
 interface ExperimentDataProps {
   experiment: FeaturedExperiment
