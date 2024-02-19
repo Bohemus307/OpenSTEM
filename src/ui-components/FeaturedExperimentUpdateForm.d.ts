@@ -30,6 +30,7 @@ export declare type FeaturedExperimentUpdateFormInputValues = {
   name?: string
   primaryImage?: string
   secondaryImage?: string
+  primaryVideo?: string
   status?: string
   description?: string
   duration?: string
@@ -43,6 +44,7 @@ export declare type FeaturedExperimentUpdateFormValidationValues = {
   name?: ValidationFunction<string>
   primaryImage?: ValidationFunction<string>
   secondaryImage?: ValidationFunction<string>
+  primaryVideo?: ValidationFunction<string>
   status?: ValidationFunction<string>
   description?: ValidationFunction<string>
   duration?: ValidationFunction<string>
@@ -59,6 +61,7 @@ export declare type FeaturedExperimentUpdateFormOverridesProps = {
   name?: PrimitiveOverrideProps<TextFieldProps>
   primaryImage?: PrimitiveOverrideProps<TextFieldProps>
   secondaryImage?: PrimitiveOverrideProps<TextFieldProps>
+  primaryVideo?: PrimitiveOverrideProps<TextFieldProps>
   status?: PrimitiveOverrideProps<TextFieldProps>
   description?: PrimitiveOverrideProps<TextFieldProps>
   duration?: PrimitiveOverrideProps<TextFieldProps>

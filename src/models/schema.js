@@ -106,6 +106,13 @@ export const schema = {
           isRequired: false,
           attributes: [],
         },
+        primaryVideo: {
+          name: 'primaryVideo',
+          isArray: false,
+          type: 'String',
+          isRequired: false,
+          attributes: [],
+        },
         status: {
           name: 'status',
           isArray: false,
@@ -200,5 +207,5 @@ export const schema = {
     },
   },
   codegenVersion: '3.4.4',
-  version: '1a70d0e855acb480c1018a09966f7050',
+  version: '2b542ee3e0924945f334935e04835e82',
 }

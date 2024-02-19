@@ -26,6 +26,7 @@ export default function FeaturedExperimentCreateForm(props) {
     name: '',
     primaryImage: '',
     secondaryImage: '',
+    primaryVideo: '',
     status: '',
     description: '',
     duration: '',
@@ -44,6 +45,9 @@ export default function FeaturedExperimentCreateForm(props) {
   const [secondaryImage, setSecondaryImage] = React.useState(
     initialValues.secondaryImage,
   )
+  const [primaryVideo, setPrimaryVideo] = React.useState(
+    initialValues.primaryVideo,
+  )
   const [status, setStatus] = React.useState(initialValues.status)
   const [description, setDescription] = React.useState(
     initialValues.description,
@@ -61,6 +65,7 @@ export default function FeaturedExperimentCreateForm(props) {
     setName(initialValues.name)
     setPrimaryImage(initialValues.primaryImage)
     setSecondaryImage(initialValues.secondaryImage)
+    setPrimaryVideo(initialValues.primaryVideo)
     setStatus(initialValues.status)
     setDescription(initialValues.description)
     setDuration(initialValues.duration)
@@ -75,6 +80,7 @@ export default function FeaturedExperimentCreateForm(props) {
     name: [],
     primaryImage: [],
     secondaryImage: [],
+    primaryVideo: [],
     status: [],
     description: [],
     duration: [],
@@ -113,6 +119,7 @@ export default function FeaturedExperimentCreateForm(props) {
           name,
           primaryImage,
           secondaryImage,
+          primaryVideo,
           status,
           description,
           duration,
@@ -176,6 +183,7 @@ export default function FeaturedExperimentCreateForm(props) {
               name,
               primaryImage,
               secondaryImage,
+              primaryVideo,
               status,
               description,
               duration,
@@ -210,6 +218,7 @@ export default function FeaturedExperimentCreateForm(props) {
               name: value,
               primaryImage,
               secondaryImage,
+              primaryVideo,
               status,
               description,
               duration,
@@ -244,6 +253,7 @@ export default function FeaturedExperimentCreateForm(props) {
               name,
               primaryImage: value,
               secondaryImage,
+              primaryVideo,
               status,
               description,
               duration,
@@ -278,6 +288,7 @@ export default function FeaturedExperimentCreateForm(props) {
               name,
               primaryImage,
               secondaryImage: value,
+              primaryVideo,
               status,
               description,
               duration,
@@ -300,6 +311,41 @@ export default function FeaturedExperimentCreateForm(props) {
         {...getOverrideProps(overrides, 'secondaryImage')}
       ></TextField>
       <TextField
+        label="Primary video"
+        isRequired={false}
+        isReadOnly={false}
+        value={primaryVideo}
+        onChange={(e) => {
+          let { value } = e.target
+          if (onChange) {
+            const modelFields = {
+              experiment_id,
+              name,
+              primaryImage,
+              secondaryImage,
+              primaryVideo: value,
+              status,
+              description,
+              duration,
+              sponsor,
+              sponsorIcon,
+              createdAt,
+              updatedAt,
+            }
+            const result = onChange(modelFields)
+            value = result?.primaryVideo ?? value
+          }
+          if (errors.primaryVideo?.hasError) {
+            runValidationTasks('primaryVideo', value)
+          }
+          setPrimaryVideo(value)
+        }}
+        onBlur={() => runValidationTasks('primaryVideo', primaryVideo)}
+        errorMessage={errors.primaryVideo?.errorMessage}
+        hasError={errors.primaryVideo?.hasError}
+        {...getOverrideProps(overrides, 'primaryVideo')}
+      ></TextField>
+      <TextField
         label="Status"
         isRequired={false}
         isReadOnly={false}
@@ -312,6 +358,7 @@ export default function FeaturedExperimentCreateForm(props) {
               name,
               primaryImage,
               secondaryImage,
+              primaryVideo,
               status: value,
               description,
               duration,
@@ -346,6 +393,7 @@ export default function FeaturedExperimentCreateForm(props) {
               name,
               primaryImage,
               secondaryImage,
+              primaryVideo,
               status,
               description: value,
               duration,
@@ -380,6 +428,7 @@ export default function FeaturedExperimentCreateForm(props) {
               name,
               primaryImage,
               secondaryImage,
+              primaryVideo,
               status,
               description,
               duration: value,
@@ -414,6 +463,7 @@ export default function FeaturedExperimentCreateForm(props) {
               name,
               primaryImage,
               secondaryImage,
+              primaryVideo,
               status,
               description,
               duration,
@@ -448,6 +498,7 @@ export default function FeaturedExperimentCreateForm(props) {
               name,
               primaryImage,
               secondaryImage,
+              primaryVideo,
               status,
               description,
               duration,
@@ -482,6 +533,7 @@ export default function FeaturedExperimentCreateForm(props) {
               name,
               primaryImage,
               secondaryImage,
+              primaryVideo,
               status,
               description,
               duration,
@@ -516,6 +568,7 @@ export default function FeaturedExperimentCreateForm(props) {
               name,
               primaryImage,
               secondaryImage,
+              primaryVideo,
               status,
               description,
               duration,

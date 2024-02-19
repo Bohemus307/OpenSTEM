@@ -17,6 +17,7 @@ export function SlimLayout({ children }: { children: React.ReactNode }) {
             src={backgroundImage}
             alt="background color fade image"
             unoptimized
+            priority
           />
         </div>
       </div>

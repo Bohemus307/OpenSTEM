@@ -27,7 +27,7 @@ export function TextField({
 
   return (
     <div className={className}>
-      {label && <Label id={id}>{label}</Label>}
+      <Label id={id}>{label}</Label>
       <input id={id} type={type} {...props} className={formClasses} />
     </div>
   )
@@ -42,7 +42,7 @@ export function SelectField({
 
   return (
     <div className={className}>
-      {label && <Label id={id}>{label}</Label>}
+      <Label id={id}>{label}</Label>
       <select id={id} {...props} className={clsx(formClasses, 'pr-8')} />
     </div>
   )
@@ -62,7 +62,7 @@ export function PasswordField({
 
   return (
     <div className={className}>
-      {label && <Label id={id}>{label}</Label>}
+      <Label id={id}>{label}</Label>
       <div className="relative">
         <input
           id={id}

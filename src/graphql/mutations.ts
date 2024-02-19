@@ -82,6 +82,7 @@ export const createFeaturedExperiment =
     name
     primaryImage
     secondaryImage
+    primaryVideo
     status
     description
     duration
@@ -89,11 +90,6 @@ export const createFeaturedExperiment =
     sponsorIcon
     createdAt
     updatedAt
-    dataPoints {
-      id
-      dataType
-      __typename
-    }
     _version
     _deleted
     _lastChangedAt
@@ -115,6 +111,7 @@ export const updateFeaturedExperiment =
     name
     primaryImage
     secondaryImage
+    primaryVideo
     status
     description
     duration
@@ -122,11 +119,6 @@ export const updateFeaturedExperiment =
     sponsorIcon
     createdAt
     updatedAt
-    dataPoints {
-      id
-      dataType
-      __typename
-    }
     _version
     _deleted
     _lastChangedAt
@@ -148,6 +140,7 @@ export const deleteFeaturedExperiment =
     name
     primaryImage
     secondaryImage
+    primaryVideo
     status
     description
     duration
@@ -155,11 +148,6 @@ export const deleteFeaturedExperiment =
     sponsorIcon
     createdAt
     updatedAt
-    dataPoints {
-      id
-      dataType
-      __typename
-    }
     _version
     _deleted
     _lastChangedAt

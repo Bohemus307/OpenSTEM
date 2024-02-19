@@ -4,6 +4,7 @@ import DataCard from './DataCard'
 
 interface ExperimentDataProps {
   experimentData: ExperimentDataType
+  layout?: string
 }
 
 export type ExperimentDataType = {
@@ -14,6 +15,7 @@ export type ExperimentDataType = {
 
 const ExperimentData: React.FC<ExperimentDataProps> = ({
   experimentData,
+  layout,
 }: ExperimentDataProps) => {
   const [currentTempStat, setCurrentTempStat] = useState(
     experimentData.temperature[0],
@@ -37,7 +39,9 @@ const ExperimentData: React.FC<ExperimentDataProps> = ({
   }, [experimentData.humidity, experimentData.temperature])
 
   return (
-    <dl className="mt-8 grid w-full grid-cols-1 gap-3 lg:grid-cols-3">
+    <dl
+      className={`${layout === 'column' ? 'grid grid-cols-1 gap-3' : 'grid grid-cols-1 gap-3 lg:grid-cols-3'}`}
+    >
       <DataCard dataStat={currentTempStat} />
       <DataCard dataStat={currentHumidStat} />
       <DataCard dataStat={experimentData.trial} />

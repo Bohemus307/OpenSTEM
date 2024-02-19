@@ -60,12 +60,3 @@ export function generateChangingValue(
   // Round the new value to two decimal places
   return parseFloat(newValue.toFixed(2))
 }
-
-// Example usage:
-let previousValue = 50 // Initial value
-for (let i = 0; i < 10; i++) {
-  // Generate a new value based on the previous value
-  const newValue = generateChangingValue(previousValue, -1, 1, 5)
-  console.log(newValue)
-  previousValue = newValue
-}

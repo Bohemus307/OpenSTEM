@@ -7,11 +7,17 @@ const Featured: React.FC = () => {
   const currentFeaturedExperiments = useGetFeaturedExperimentsList()
 
   if (currentFeaturedExperiments.isLoading) {
-    return <div>Loading ...</div>
+    return (
+      <>
+        <div className="h-max-min flex animate-pulse rounded-lg bg-gray-50 p-4 shadow hover:opacity-80 lg:h-[455px]" />
+        <div className="h-max-min flex animate-pulse rounded-lg bg-gray-50 p-4 shadow hover:opacity-80 lg:h-[455px]" />
+        <div className="h-max-min flex animate-pulse rounded-lg bg-gray-50 p-4 shadow hover:opacity-80 lg:h-[455px]" />
+      </>
+    )
   }
 
   return (
-    <div className="w-full flex-col items-center justify-center gap-8 space-y-8">
+    <div className="w-full flex-col items-center justify-center space-y-8">
       {!currentFeaturedExperiments.isLoading &&
         currentFeaturedExperiments.data &&
         currentFeaturedExperiments.data?.listFeaturedExperiments?.items.map(

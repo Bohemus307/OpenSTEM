@@ -69,6 +69,7 @@ type EagerFeaturedExperiment = {
   readonly name?: string | null
   readonly primaryImage?: string | null
   readonly secondaryImage?: string | null
+  readonly primaryVideo?: string | null
   readonly status?: string | null
   readonly description?: string | null
   readonly duration?: string | null
@@ -87,6 +88,7 @@ type LazyFeaturedExperiment = {
   readonly name?: string | null
   readonly primaryImage?: string | null
   readonly secondaryImage?: string | null
+  readonly primaryVideo?: string | null
   readonly status?: string | null
   readonly description?: string | null
   readonly duration?: string | null

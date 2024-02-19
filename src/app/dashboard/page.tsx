@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import WelcomePanel from '@components/Dashboard/WelcomePanel'
@@ -6,7 +5,7 @@ import Featured from '@components/Dashboard/Featured'
 
 import { Amplify } from 'aws-amplify'
 import config from '../../amplifyconfiguration.json'
-import { withAuthenticator } from '@aws-amplify/ui-react'
+import withAuthenticator from './withAuthenticator'
 
 Amplify.configure(config)
 

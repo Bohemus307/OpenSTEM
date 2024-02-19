@@ -10,6 +10,7 @@ import {
   SunIcon,
 } from '@heroicons/react/24/solid'
 import { generateStats } from '@lib/utils/createData'
+import useExperimentData from '@hooks/useExperimentData'
 
 interface FeaturedExperimentCardProps {
   experiment: FeaturedExperiment
@@ -17,33 +18,12 @@ interface FeaturedExperimentCardProps {
 const FeaturedExperimentCard: React.FC<FeaturedExperimentCardProps> = ({
   experiment,
 }: FeaturedExperimentCardProps) => {
-  const [currentData, setCurrentData] = useState<ExperimentDataType>()
-
-  // create fake data for now
-  useEffect(() => {
-    if (experiment) {
-      const temperatureData = generateStats('Temperature', SunIcon, '°', 69.59)
-      const humidityData = generateStats('Humidity', CloudIcon, '%', 9.59)
-      const trialData = {
-        id: 3,
-        name: 'Trial Began',
-        stat: '1/1/2024',
-        icon: ClockIcon,
-        symbol: '',
-      }
-      const experimentData = {
-        temperature: temperatureData,
-        humidity: humidityData,
-        trial: trialData,
-      }
-      setCurrentData(experimentData)
-    }
-  }, [experiment])
+  const currentData = useExperimentData()
 
   return (
-    <div className="h-max-min flex rounded-lg bg-gray-50 p-4 shadow hover:opacity-80 lg:h-[455px]">
+    <div className="h-max-min flex w-full rounded-lg bg-gray-50 p-4 shadow hover:opacity-80 lg:h-[455px]">
       {experiment && (
-        <Link className="flex" href={'/dashboard'}>
+        <Link className="flex w-full" href={`/experiment/${experiment.id}`}>
           <div className="flex h-full min-w-max">
             <Image
               height={417}
@@ -53,11 +33,11 @@ const FeaturedExperimentCard: React.FC<FeaturedExperimentCardProps> = ({
               className="rounded-md object-fill"
             />
           </div>
-          <div className="ml-8">
+          <div className="ml-8 flex w-full flex-col justify-between">
             <h2 className="mt-4 text-3xl font-bold text-primary-500 ">
               {experiment.name}
             </h2>
-            <div className="text-md w-full pt-4 font-medium">
+            <div className="text-md w-full font-medium">
               <p className="w-10/12">{experiment.description}</p>
               {currentData && <ExperimentData experimentData={currentData} />}
             </div>
@@ -74,12 +54,7 @@ const FeaturedExperimentCard: React.FC<FeaturedExperimentCardProps> = ({
                 </span>
               </div>
             ) : (
-              <div className="flex flex-col items-center">
-                <div className="border-1 flex h-12 w-12 items-center justify-center rounded-md border bg-primary-500">
-                  <GiftIcon className="text-primary-600" />
-                </div>
-                <span className="text-xs">No Current Sponsor</span>
-              </div>
+              <div className="flex flex-col items-end pt-12" />
             )}
           </div>
         </Link>

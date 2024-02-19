@@ -100,6 +100,7 @@ function MobileNavigation() {
 
 export function Header() {
   const { user } = useAuthenticator()
+  console.log(user)
   return (
     <header className="py-10">
       <Container>

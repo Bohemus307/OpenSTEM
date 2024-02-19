@@ -10,7 +10,6 @@ import { classNames } from '@lib/utils/globals'
 import { ReactQueryClientProvider } from './queryProvider'
 import { signOut } from 'aws-amplify/auth'
 import { useRouter } from 'next/navigation'
-import { Loader } from '@aws-amplify/ui-react'
 
 const user = {
   name: 'Chelsea Hagon',

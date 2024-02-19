@@ -98,6 +98,7 @@ export type CreateFeaturedExperimentInput = {
   name?: string | null
   primaryImage?: string | null
   secondaryImage?: string | null
+  primaryVideo?: string | null
   status?: string | null
   description?: string | null
   duration?: string | null
@@ -113,6 +114,7 @@ export type ModelFeaturedExperimentConditionInput = {
   name?: ModelStringInput | null
   primaryImage?: ModelStringInput | null
   secondaryImage?: ModelStringInput | null
+  primaryVideo?: ModelStringInput | null
   status?: ModelStringInput | null
   description?: ModelStringInput | null
   duration?: ModelStringInput | null
@@ -133,6 +135,7 @@ export type FeaturedExperiment = {
   name?: string | null
   primaryImage?: string | null
   secondaryImage?: string | null
+  primaryVideo?: string | null
   status?: string | null
   description?: string | null
   duration?: string | null
@@ -151,6 +154,7 @@ export type UpdateFeaturedExperimentInput = {
   name?: string | null
   primaryImage?: string | null
   secondaryImage?: string | null
+  primaryVideo?: string | null
   status?: string | null
   description?: string | null
   duration?: string | null
@@ -206,6 +210,7 @@ export type ModelFeaturedExperimentFilterInput = {
   name?: ModelStringInput | null
   primaryImage?: ModelStringInput | null
   secondaryImage?: ModelStringInput | null
+  primaryVideo?: ModelStringInput | null
   status?: ModelStringInput | null
   description?: ModelStringInput | null
   duration?: ModelStringInput | null
@@ -272,6 +277,7 @@ export type ModelSubscriptionFeaturedExperimentFilterInput = {
   name?: ModelSubscriptionStringInput | null
   primaryImage?: ModelSubscriptionStringInput | null
   secondaryImage?: ModelSubscriptionStringInput | null
+  primaryVideo?: ModelSubscriptionStringInput | null
   status?: ModelSubscriptionStringInput | null
   description?: ModelSubscriptionStringInput | null
   duration?: ModelSubscriptionStringInput | null
@@ -357,6 +363,7 @@ export type CreateFeaturedExperimentMutation = {
     name?: string | null
     primaryImage?: string | null
     secondaryImage?: string | null
+    primaryVideo?: string | null
     status?: string | null
     description?: string | null
     duration?: string | null
@@ -383,6 +390,7 @@ export type UpdateFeaturedExperimentMutation = {
     name?: string | null
     primaryImage?: string | null
     secondaryImage?: string | null
+    primaryVideo?: string | null
     status?: string | null
     description?: string | null
     duration?: string | null
@@ -409,6 +417,7 @@ export type DeleteFeaturedExperimentMutation = {
     name?: string | null
     primaryImage?: string | null
     secondaryImage?: string | null
+    primaryVideo?: string | null
     status?: string | null
     description?: string | null
     duration?: string | null
@@ -506,6 +515,7 @@ export type GetFeaturedExperimentQuery = {
     name?: string | null
     primaryImage?: string | null
     secondaryImage?: string | null
+    primaryVideo?: string | null
     status?: string | null
     description?: string | null
     duration?: string | null
@@ -535,6 +545,7 @@ export type ListFeaturedExperimentsQuery = {
       name?: string | null
       primaryImage?: string | null
       secondaryImage?: string | null
+      primaryVideo?: string | null
       status?: string | null
       description?: string | null
       duration?: string | null
@@ -568,6 +579,7 @@ export type SyncFeaturedExperimentsQuery = {
       name?: string | null
       primaryImage?: string | null
       secondaryImage?: string | null
+      primaryVideo?: string | null
       status?: string | null
       description?: string | null
       duration?: string | null
@@ -653,6 +665,7 @@ export type OnCreateFeaturedExperimentSubscription = {
     name?: string | null
     primaryImage?: string | null
     secondaryImage?: string | null
+    primaryVideo?: string | null
     status?: string | null
     description?: string | null
     duration?: string | null
@@ -678,6 +691,7 @@ export type OnUpdateFeaturedExperimentSubscription = {
     name?: string | null
     primaryImage?: string | null
     secondaryImage?: string | null
+    primaryVideo?: string | null
     status?: string | null
     description?: string | null
     duration?: string | null
@@ -703,6 +717,7 @@ export type OnDeleteFeaturedExperimentSubscription = {
     name?: string | null
     primaryImage?: string | null
     secondaryImage?: string | null
+    primaryVideo?: string | null
     status?: string | null
     description?: string | null
     duration?: string | null
