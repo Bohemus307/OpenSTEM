@@ -46,7 +46,7 @@ export default function Login() {
     try {
       const { isSignedIn } = await signIn({ username, password })
       if (isSignedIn) {
-        router.push('/dashboard')
+        router.push('/experiments')
       }
     } catch (error) {
       console.log('error signing in', error)

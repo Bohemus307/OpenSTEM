@@ -8,7 +8,7 @@ import { Current } from '@components/Landing/Current'
 import { PrimaryFeatures } from '@components/Landing/PrimaryFeatures'
 import { SecondaryFeatures } from '@components/Landing/SecondaryFeatures'
 import { Testimonials } from '@components/Landing/Testimonials'
-import { Authenticator } from '@aws-amplify/ui-react'
+import Authenticator from './(auth)/login/authenticator'
 
 export default function Home() {
   return (

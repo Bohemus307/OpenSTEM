@@ -8,11 +8,11 @@ const Featured: React.FC = () => {
 
   if (currentFeaturedExperiments.isLoading) {
     return (
-      <>
+      <div>
         <div className="h-max-min flex animate-pulse rounded-lg bg-gray-50 p-4 shadow hover:opacity-80 lg:h-[455px]" />
         <div className="h-max-min flex animate-pulse rounded-lg bg-gray-50 p-4 shadow hover:opacity-80 lg:h-[455px]" />
         <div className="h-max-min flex animate-pulse rounded-lg bg-gray-50 p-4 shadow hover:opacity-80 lg:h-[455px]" />
-      </>
+      </div>
     )
   }
 

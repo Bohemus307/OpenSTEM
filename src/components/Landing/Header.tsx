@@ -100,7 +100,7 @@ function MobileNavigation() {
 
 export function Header() {
   const { user } = useAuthenticator()
-  console.log(user)
+
   return (
     <header className="py-10">
       <Container>
@@ -119,20 +119,18 @@ export function Header() {
             </div>
           </div>
           <div className="flex w-1/3 items-center justify-end gap-x-5 md:gap-x-8">
-            {user ? (
-              <Button href="/dashboard" color="primary">
-                <span>
-                  Check Out The{' '}
-                  <span className="hidden lg:inline">Experiments</span>
-                </span>
-              </Button>
-            ) : (
-              <Button href="/register" color="primary">
-                <span>
-                  Get started <span className="hidden lg:inline">today</span>
+            {user && (
+              <Button href="/experiments" color="white">
+                <span className="hidden text-primary-600 lg:inline">
+                  Experiments
                 </span>
               </Button>
             )}
+            <Button href="/register" color="primary">
+              <span>
+                Get started <span className="hidden lg:inline">today</span>
+              </span>
+            </Button>
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
             </div>

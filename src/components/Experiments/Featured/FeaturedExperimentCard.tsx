@@ -38,7 +38,7 @@ const FeaturedExperimentCard: React.FC<FeaturedExperimentCardProps> = ({
               {experiment.name}
             </h2>
             <div className="text-md w-full font-medium">
-              <p className="w-10/12">{experiment.description}</p>
+              <p className="w-10/12 pb-6">{experiment.description}</p>
               {currentData && <ExperimentData experimentData={currentData} />}
             </div>
             {experiment.sponsor && experiment.sponsorIcon ? (

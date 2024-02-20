@@ -1,7 +1,7 @@
 'use client'
 
-import WelcomePanel from '@components/Dashboard/WelcomePanel'
-import Featured from '@components/Dashboard/Featured'
+import WelcomePanel from '@components/Experiments/WelcomePanel'
+import Featured from '@components/Experiments/Featured'
 
 import { Amplify } from 'aws-amplify'
 import config from '../../amplifyconfiguration.json'

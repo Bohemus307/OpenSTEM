@@ -9,10 +9,10 @@ export function Footer() {
     <footer className="bg-slate-50">
       <Container>
         <nav
-          className="flex items-center justify-evenly text-sm"
+          className="flex flex-col items-center justify-evenly text-sm lg:flex-row"
           aria-label="quick links"
         >
-          <Link href="/" aria-label="Home" className="flex w-1/3 items-center">
+          <Link href="/" aria-label="Home" className="flex  items-center">
             <Logo variant="Medium" />
             <span className="-ml-8 mt-4 text-lg font-bold text-primary-500">
               OpenSTEM

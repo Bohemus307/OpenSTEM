@@ -44,7 +44,7 @@ const DataCard = ({ dataStat }: DataCardProps) => {
   return (
     <div
       key={dataStat.id}
-      className="relative overflow-hidden rounded-lg bg-white px-4 py-4 shadow sm:px-6 sm:pt-6"
+      className="relative overflow-hidden rounded-lg bg-gray-50 px-4 py-4 shadow sm:px-6 sm:pt-6"
     >
       <dt>
         <div className="absolute rounded-md bg-primary-500 p-3">

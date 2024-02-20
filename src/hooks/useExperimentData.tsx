@@ -1,4 +1,4 @@
-import { ExperimentDataType } from '@components/Dashboard/Featured/ExperimentData'
+import { ExperimentDataType } from '@components/Experiments/Featured/ExperimentData'
 import { SunIcon, CloudIcon, ClockIcon } from '@heroicons/react/24/outline'
 import { generateStats } from '@lib/utils/createData'
 

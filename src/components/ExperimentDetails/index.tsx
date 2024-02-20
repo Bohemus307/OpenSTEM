@@ -1,15 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import ExperimentData, {
   ExperimentDataType,
-} from '@components/Dashboard/Featured/ExperimentData'
+} from '@components/Experiments/Featured/ExperimentData'
 import VideoPlayer from '@components/VideoPlayer'
-import {
-  UserIcon,
-  HandThumbUpIcon,
-  CheckIcon,
-  PaperClipIcon,
-  QuestionMarkCircleIcon,
-} from '@heroicons/react/24/outline'
+import { CheckIcon } from '@heroicons/react/24/outline'
 import {
   ArrowTrendingDownIcon,
   ArrowTrendingUpIcon,
@@ -105,7 +99,7 @@ const comments = [
 
 const ExperimentDetails = ({ experiment }: ExperimentDetailsProps) => {
   const currentExperimentData = useExperimentData()
-  console.log(currentExperimentData)
+
   return (
     <section>
       <div className="mx-auto max-w-3xl px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
@@ -155,7 +149,7 @@ const ExperimentDetails = ({ experiment }: ExperimentDetailsProps) => {
         <div className="space-y-6 lg:col-span-2 lg:col-start-1">
           {/* Description list*/}
           <section aria-labelledby="experiment-details">
-            <div className="bg-white shadow sm:rounded-lg">
+            <div className="bg-gray-50 shadow sm:rounded-lg">
               <div className="px-4 py-5 sm:px-6">
                 <h2
                   id="experiment-details"
@@ -164,7 +158,7 @@ const ExperimentDetails = ({ experiment }: ExperimentDetailsProps) => {
                   Experiment Information
                 </h2>
                 <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                  details and current environmentals.
+                  {experiment.description}
                 </p>
               </div>
               <div className="border-t border-gray-200 px-4 py-5 sm:px-6">
@@ -175,7 +169,7 @@ const ExperimentDetails = ({ experiment }: ExperimentDetailsProps) => {
               <div>
                 <a
                   href="#"
-                  className="block bg-gray-50 px-4 py-4 text-center text-sm font-medium text-gray-500 hover:text-gray-700 sm:rounded-b-lg"
+                  className="block bg-white px-4 py-4 text-center text-sm font-medium text-gray-500 hover:text-gray-700 sm:rounded-b-lg"
                 >
                   Watch Live Stream
                 </a>
@@ -185,7 +179,7 @@ const ExperimentDetails = ({ experiment }: ExperimentDetailsProps) => {
 
           {/* Comments*/}
           <section aria-labelledby="discussion-title">
-            <div className="bg-white shadow sm:overflow-hidden sm:rounded-lg">
+            <div className="bg-gray-50 shadow sm:overflow-hidden sm:rounded-lg">
               <div className="divide-y divide-gray-200">
                 <div className="px-4 py-5 sm:px-6">
                   <h2
@@ -287,7 +281,7 @@ const ExperimentDetails = ({ experiment }: ExperimentDetailsProps) => {
             layout="column"
             experimentData={currentExperimentData as ExperimentDataType}
           />
-          <div className="mt-6 bg-white px-4 py-5 shadow sm:rounded-lg sm:px-6">
+          <div className="mt-6 divide-y divide-gray-200 bg-gray-50 px-4 py-5 shadow sm:rounded-lg sm:px-6">
             <h2
               id="timeline-title"
               className="text-lg font-medium text-gray-900"
@@ -297,7 +291,7 @@ const ExperimentDetails = ({ experiment }: ExperimentDetailsProps) => {
 
             {/* Activity Feed */}
             <div className="mt-6 flow-root">
-              <ul role="list" className="-mb-8">
+              <ul role="list" className="-mb-8 pt-4">
                 {timeline.map((item, itemIdx) => (
                   <li key={item.id}>
                     <div className="relative pb-8">

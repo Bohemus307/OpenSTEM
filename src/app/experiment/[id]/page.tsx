@@ -1,6 +1,6 @@
 'use client'
 
-import WelcomePanel from '@components/Dashboard/WelcomePanel'
+import WelcomePanel from '@components/Experiments/WelcomePanel'
 
 import { Amplify } from 'aws-amplify'
 import config from '../../../amplifyconfiguration.json'
@@ -17,6 +17,7 @@ const ExperimentDetailPage = ({
   params: { id: string }
 }) => {
   const currentExperiment = useGetExperimentsById(id)
+
   return (
     <>
       <main className="-mt-24 pb-8">
@@ -28,19 +29,21 @@ const ExperimentDetailPage = ({
             </h2>
             <WelcomePanel />
             {!currentExperiment.isLoading &&
-              currentExperiment.data?.getFeaturedExperiment && (
-                <div className="mt-4">
-                  <h2 className="sr-only" id="current-featured-experiments">
-                    {currentExperiment.data?.getFeaturedExperiment?.name}
-                  </h2>
-                  <ExperimentDetails
-                    experiment={
-                      currentExperiment.data
-                        .getFeaturedExperiment as FeaturedExperiment
-                    }
-                  />
-                </div>
-              )}
+            currentExperiment.data?.getFeaturedExperiment ? (
+              <div className="mt-4">
+                <h2 className="sr-only" id="current-featured-experiments">
+                  {currentExperiment.data?.getFeaturedExperiment?.name}
+                </h2>
+                <ExperimentDetails
+                  experiment={
+                    currentExperiment.data
+                      .getFeaturedExperiment as FeaturedExperiment
+                  }
+                />
+              </div>
+            ) : (
+              <div className="h-screen w-full" />
+            )}
           </div>
         </div>
       </main>
